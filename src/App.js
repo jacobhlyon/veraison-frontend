@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
 
 class App extends Component {
+
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/api/v1/users')
+  //     .then(res => res.json())
+  //     .then(res => console.log(res))
+  // }
+
   render() {
+
     return (
       <div className="App">
         <div className="App-header">
@@ -18,4 +27,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
