@@ -7,12 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import usersReducer from './reducers/usersReducer'
+import authReducer from './reducers/authReducer'
 
-const store = createStore(usersReducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({users: usersReducer, auth: authReducer})
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
-console.log(store.getState())
+// console.log(store.getState())
 
-// const rootReducer = combineReducers({usersReducer, adlfadl})
 
 
 ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));

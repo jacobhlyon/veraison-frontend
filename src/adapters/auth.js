@@ -1,4 +1,5 @@
 class Auth {
+  
   static login(userParams) {
     // console.log(userParams)
     const userJSON = JSON.stringify(userParams)

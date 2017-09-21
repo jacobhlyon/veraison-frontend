@@ -12,40 +12,17 @@ class SignupForm extends React.Component {
 		password_confirmation: ""
 	}
 
-	handleFirstNameChange = (event) => {
+	handleInputChange = (event) => {
+		const value = event.target.value
+		const target = event.target.dataset.name
 		this.setState({
-			first_name: event.target.value
+			[target]: value
 		})
 	}
 
-	handleLastNameChange = (event) => {
-		this.setState({
-			last_name: event.target.value
-		})
-	}
-
-	handleEmailChange = (event) => {
-		this.setState({
-			email: event.target.value
-		})
-	}
-
-	handlePasswordChange = (event) => {
-		this.setState({
-			password: event.target.value
-		})
-	}
-
-	handlePasswordConfirmationChange = (event) => {
-		this.setState({
-			password_confirmation: event.target.value
-		})
-	}
 
 	 handleSubmit = (event) => {
 	    event.preventDefault()
-
-	    // console.log(this.state)
 
 	    const newUserParams = {
 	      first_name: this.state.first_name,
@@ -77,23 +54,23 @@ class SignupForm extends React.Component {
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Field>
 					<label>First Name</label>
-					<input placeholder='First Name' onChange={this.handleFirstNameChange} value={this.state.first_name}/>
+					<input placeholder='First Name' data-name="first_name" onChange={this.handleInputChange} value={this.state.first_name}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Last Name</label>
-					<input placeholder='Last Name' onChange={this.handleLastNameChange} value={this.state.last_name}/>
+					<input placeholder='Last Name' data-name="last_name" onChange={this.handleInputChange} value={this.state.last_name}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Email</label>
-					<input placeholder='Email' onChange={this.handleEmailChange} value={this.state.email}/>
+					<input placeholder='Email' data-name="email" onChange={this.handleInputChange} value={this.state.email}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Password</label>
-					<input placeholder='Password' onChange={this.handlePasswordChange} value={this.state.password}/>
+					<input placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Confirm Password</label>
-					<input placeholder='Confirm Password' onChange={this.handlePasswordConfirmationChange} value={this.state.password_confirmation}/>
+					<input placeholder='Confirm Password' data-name="password_confirmation" onChange={this.handleInputChange} value={this.state.password_confirmation}/>
 				</Form.Field>
 				<Button type='submit'>Submit</Button>
 			</Form>

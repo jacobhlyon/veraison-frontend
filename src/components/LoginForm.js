@@ -1,6 +1,9 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-import Auth from '../adapters/auth'
+// import Auth from '../adapters/auth'
+import { loginUser } from '../actions/authActions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class LoginForm extends React.Component {
 
@@ -24,21 +27,20 @@ class LoginForm extends React.Component {
 	 handleSubmit = (event) => {
 	    event.preventDefault()
 
-
+	    console.log("handle submit hit")
 	    const userParams = {
 	      email: this.state.email,
 	      password: this.state.password
 	    }
-	    Auth.login(userParams)
-	      .then((user) => {
+
+	    this.props.loginUser(userParams)
+	      .then(
 	        this.setState({
 	          email: "",
 	          password: ""
 	        })
-	        localStorage.setItem("token", user.jwt)
-	        console.log(localStorage.getItem("token"))
+	      )
 	        // this.props.history.replace("/")
-	      })
 
 	  }
 
@@ -62,6 +64,9 @@ class LoginForm extends React.Component {
 
 } 
 
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({loginUser}, dispatch)
+}
 
 
-export default LoginForm
+export default connect(null, mapDispatchToProps)(LoginForm)

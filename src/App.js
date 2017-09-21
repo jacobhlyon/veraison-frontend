@@ -6,38 +6,40 @@ import LoginForm from './components/LoginForm'
 import authorize from './components/hocs/authorize'
 import Auth from './adapters/auth'
 import SignupForm from './components/SignupForm'
+import { bindActionCreators } from 'redux'
+import { fetchUsers } from './actions/userActions'
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/api/v1/users')
-  //     .then(res => res.json())
-  //     .then(res => console.log(res))
+  componentDidMount() {
+    this.props.fetchUsers()
+  }
+
+  // state = {
+  //   currentUser: {},
+  //   isLoggedin: localStorage.getItem("jwt") ? true : false,
+  //   jwt: localStorage.getItem("jwt"),
+  //   allUsers: []
   // }
-  state = {
-    currentUser: {},
-    isLoggedin: localStorage.getItem("jwt") ? true : false,
-    jwt: localStorage.getItem("jwt")
-  }
 
-  loginUser = (userParams) => {
-    Auth.login(userParams)
-      .then(user => {
-        localStorage.setItem('jwt', user.jwt)
-        this.setState({
-          currentUser: user,
-          isLoggedIn: true
-        })
-      })
-  }
+  // loginUser = (userParams) => {
+  //   Auth.login(userParams)
+  //     .then(user => {
+  //       localStorage.setItem('jwt', user.jwt)
+  //       this.setState({
+  //         currentUser: user,
+  //         isLoggedIn: true
+  //       })
+  //     })
+  // }
 
-  handleButtonClick = () => {
-    Auth.me().then(user => {
-      console.log(user)
+  // handleButtonClick = () => {
+  //   Auth.me().then(user => {
+  //     console.log(user)
 
-    })
+  //   })
 
-  }
+  // }
 
   // render() {
   //   const AuthHome = authorize(Home)
@@ -51,8 +53,9 @@ class App extends Component {
   //   );
   // }
 
-
   render() {
+
+    console.log(this.props.users)
 
     return (
       <div className="App">
@@ -61,11 +64,20 @@ class App extends Component {
           <h2>Veraison</h2>
         </div>
         <div>
-          <SignupForm />
+          <LoginForm />
         </div>
       </div>
     );
   }
 }
+  function mapStateToProps(state) {
+    return {
+      users:state.users.allUsers
+    }
+  }
 
-export default connect()(App);
+  function mapDispatchToProps(dispatch) {
+    return bindActionCreators({fetchUsers}, dispatch)
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
