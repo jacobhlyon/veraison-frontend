@@ -16,3 +16,9 @@ export function loginUser(data) {
 	      })
 	}
 }
+
+export function logoutUser() {
+	return function(dispatch) {
+		return dispatch({type: "LOGGED_OUT"})
+	}
+}

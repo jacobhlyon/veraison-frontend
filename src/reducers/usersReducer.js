@@ -1,4 +1,4 @@
-function usersReducer(state = {allUsers: []}, action) {
+function usersReducer(state = {currentUser: {}}, action) {
 
 	switch (action.type) {
 		case "FETCHED_USERS":
