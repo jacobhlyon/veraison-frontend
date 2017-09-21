@@ -47,14 +47,14 @@ class SignupForm extends React.Component {
 
 	    // console.log(this.state)
 
-	    const userParams = {
+	    const newUserParams = {
 	      first_name: this.state.first_name,
 	      last_name: this.state.last_name,	
 	      email: this.state.email,
 	      password: this.state.password,
 	      password_confirmation: this.state.password_confirmation
 	    }
-	    Auth.signup(userParams)
+	    Auth.signup(newUserParams)
 	      .then((user) => {
 	        this.setState({
 	          last_name: "",

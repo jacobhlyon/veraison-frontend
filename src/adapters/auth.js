@@ -19,18 +19,19 @@ class Auth {
       .catch(alert("You have an error"))
   }
 
-  static signup(userParams) {
-      console.log(userParams)
-      const userJSON = JSON.stringify(userParams)
-      const requestInfo = {
-        method: 'POST',
-        body: userJSON,
-        headers: {
-          "Content-Type":"application/json",
-          "Accept":"application/json"
-        }
+  static signup(data) {
+    const requestInfo = {
+      method: 'POST',
+      body: JSON.stringify({data}),
+      headers: {
+        "Content-Type":"application/json",
       }
-
+    }
+    return fetch('http://localhost:3000/api/v1/users', requestInfo)
+      .then(res => {
+        console.log(res.status)
+        return res.json()
+      })
   }
 
   static me() {
