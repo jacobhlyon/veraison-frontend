@@ -4,10 +4,10 @@ import './App.css';
 import { connect } from 'react-redux'
 import LoginForm from './components/LoginForm'
 import authorize from './components/hocs/authorize'
-import Auth from './adapters/auth'
 import SignupForm from './components/SignupForm'
 import { bindActionCreators } from 'redux'
 import { fetchUsers } from './actions/userActions'
+import NavBar from './components/NavBar'
 
 class App extends Component {
 
@@ -48,10 +48,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Veraison</h2>
-        </div>
+        <NavBar />
         <div>
           <SignupForm />
         </div>
