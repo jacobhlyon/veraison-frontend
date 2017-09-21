@@ -1,15 +1,22 @@
 class Auth {
   static login(userParams) {
+    console.log(userParams)
     const userJSON = JSON.stringify(userParams)
-    return fetch('http://localhost:3000/api/v1/login', {
+    const requestInfo = {
       method: 'POST',
       body: userJSON,
       headers: {
-        "Content-Type" : "application/json"
-        "Accept" : "application/json"
+        "Content-Type":"application/json",
+        "Accept":"application/json"
       }
-    })
-      .then(res => res.json())
+    }
+
+    return fetch('http://localhost:3000/api/v1/login', requestInfo)
+      .then(res => {
+        console.log(res.status)
+        return res.json()
+      })
+      .catch(alert("You have an error"))
   }
 
   static signup() {
@@ -18,7 +25,7 @@ class Auth {
 
   static me() {
     const jwtToken = localStorage.getItem("token")
-    return fetch('http://localhost3000/api/v1/me', {
+    return fetch('http://localhost:3000/api/v1/me',{
       headers:{
         "Authorization":`Bearer ${jwtToken}`,
         "Accept":"application/json"
@@ -27,7 +34,8 @@ class Auth {
     .then(res => res.json())
   }
 
-  static logout() {
+
+  static logOut() {
     localStorage.removeItem('token')
   }
 }
