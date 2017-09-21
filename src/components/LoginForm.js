@@ -1,45 +1,40 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-// import Auth from '../adapters/auth'
 import { loginUser } from '../actions/authActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class LoginForm extends React.Component {
 
+	// this state is used for the controlled form
 	state = {
 		email: "",
 		password: ""
 	}
 
-	handleEmailChange = (event) => {
+	handleInputChange = (event) => {
+		const value = event.target.value
+		const target = event.target.dataset.name
 		this.setState({
-			email: event.target.value
-		})
-	}
-
-	handlePasswordChange = (event) => {
-		this.setState({
-			password: event.target.value
+			[target]: value
 		})
 	}
 
 	 handleSubmit = (event) => {
 	    event.preventDefault()
 
-	    console.log("handle submit hit")
 	    const userParams = {
 	      email: this.state.email,
 	      password: this.state.password
 	    }
 
 	    this.props.loginUser(userParams)
-	      .then(
-	        this.setState({
-	          email: "",
-	          password: ""
-	        })
-	      )
+	      	.then(
+	        	this.setState({
+	          		email: "",
+	          		password: ""
+	        	})
+	      	)
 	        // this.props.history.replace("/")
 
 	  }
@@ -51,11 +46,11 @@ class LoginForm extends React.Component {
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Field>
 					<label>Email</label>
-					<input placeholder='Email' onChange={this.handleEmailChange} value={this.state.email}/>
+					<input placeholder='Email' data-name="email" onChange={this.handleInputChange} value={this.state.email}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Password</label>
-					<input placeholder='Password' onChange={this.handlePasswordChange} value={this.state.password}/>
+					<input placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
 				</Form.Field>
 				<Button type='submit'>Submit</Button>
 			</Form>

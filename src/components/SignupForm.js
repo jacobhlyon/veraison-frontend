@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-import Auth from '../adapters/auth'
+import { createUser } from '../actions/userActions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class SignupForm extends React.Component {
 
@@ -21,7 +23,7 @@ class SignupForm extends React.Component {
 	}
 
 
-	 handleSubmit = (event) => {
+	handleSubmit = (event) => {
 	    event.preventDefault()
 
 	    const newUserParams = {
@@ -31,21 +33,21 @@ class SignupForm extends React.Component {
 	      password: this.state.password,
 	      password_confirmation: this.state.password_confirmation
 	    }
-	    Auth.signup(newUserParams)
-	      .then((user) => {
+
+	    this.props.createUser(newUserParams)
+	      .then(
 	        this.setState({
-	          last_name: "",
-				email: "",
-				password: "",
+	          	first_name: "",
+			  	last_name: "",
+			 	 email: "",
+			 	 password: "",
 				password_confirmation: ""
 	        })
-	        localStorage.setItem("token", user.jwt)
-	        console.log(localStorage.getItem("token"))
-	        // then I'll want to redirect to user page
+	      )
 	        // this.props.history.replace("/")
-	      })
+	        // then I'll want to redirect to user page
 
-	  }
+	}
 
 
 
@@ -79,6 +81,10 @@ class SignupForm extends React.Component {
 
 } 
 
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({createUser}, dispatch)
+}
 
 
-export default SignupForm
+
+export default connect(null, mapDispatchToProps)(SignupForm)

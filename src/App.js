@@ -22,17 +22,6 @@ class App extends Component {
   //   allUsers: []
   // }
 
-  // loginUser = (userParams) => {
-  //   Auth.login(userParams)
-  //     .then(user => {
-  //       localStorage.setItem('jwt', user.jwt)
-  //       this.setState({
-  //         currentUser: user,
-  //         isLoggedIn: true
-  //       })
-  //     })
-  // }
-
   // handleButtonClick = () => {
   //   Auth.me().then(user => {
   //     console.log(user)
@@ -64,7 +53,7 @@ class App extends Component {
           <h2>Veraison</h2>
         </div>
         <div>
-          <LoginForm />
+          <SignupForm />
         </div>
       </div>
     );

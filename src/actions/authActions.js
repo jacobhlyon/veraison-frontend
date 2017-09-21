@@ -1,6 +1,5 @@
 export function loginUser(data) {
 	return function(dispatch) {
-		console.log("I should be second - hit login user auth action", data)
 		const userJSON = JSON.stringify(data)
 	    const requestInfo = {
 	      method: 'POST',
