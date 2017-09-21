@@ -1,6 +1,6 @@
 class Auth {
   static login(userParams) {
-    console.log(userParams)
+    // console.log(userParams)
     const userJSON = JSON.stringify(userParams)
     const requestInfo = {
       method: 'POST',
@@ -19,7 +19,17 @@ class Auth {
       .catch(alert("You have an error"))
   }
 
-  static signup() {
+  static signup(userParams) {
+      console.log(userParams)
+      const userJSON = JSON.stringify(userParams)
+      const requestInfo = {
+        method: 'POST',
+        body: userJSON,
+        headers: {
+          "Content-Type":"application/json",
+          "Accept":"application/json"
+        }
+      }
 
   }
 

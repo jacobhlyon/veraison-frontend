@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import LoginForm from './components/LoginForm'
 import authorize from './components/hocs/authorize'
 import Auth from './adapters/auth'
+import SignupForm from './components/SignupForm'
 
 class App extends Component {
 
@@ -60,7 +61,7 @@ class App extends Component {
           <h2>Veraison</h2>
         </div>
         <div>
-          <LoginForm />
+          <SignupForm />
         </div>
       </div>
     );
