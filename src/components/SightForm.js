@@ -15,35 +15,31 @@ class SightForm extends React.Component {
     	gas_evidence: ""
 	}
 
-	handleChange = (e, { value }) => {this.setState({ value })}
+	handleInputChange = (event, eventProperties) => {
+		const value = eventProperties.value
+		const target = eventProperties.name
+		this.setState({
+			[target]: value
+		})
+	}
 
 	render() {
 
-		const { value } = this.state
-
 		return(
-			<div>
 				<Form>
 					<Form.Group inline>
-						<label>Clarity/Visible Sediment</label>
-							<Form.Field control={Radio} label="Clear" value="clear" checked={value === 
-								'clear'} onChange={this.handleChange} />
-							<Form.Field control={Radio} label="Hazy" value="hazy" checked={value === 
-								'hazy'} onChange={this.handleChange} />
-							<Form.Field control={Radio} label="Turbid" value="turbid" checked={value === 
-								'turbid'} onChange={this.handleChange} />	
+						<label>Clarity/Visible Sediment:</label>
+							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
+							<Form.Field control={Radio} label="Hazy" name="clarity" value="hazy" onChange={this.handleInputChange} checked={this.state.clarity === 'hazy'}/>
+							<Form.Field control={Radio} label="Turbid" name="clarity" value="turbid" onChange={this.handleInputChange} checked={this.state.clarity === 'turbid'}/>	
 					</Form.Group>
 					<Form.Group inline>
-						<label>Concentration</label>
-							<Form.Field control={Radio} label="Pale" value="pale" checked={value === 
-								'pale'} onChange={this.handleChange} />
-							<Form.Field control={Radio} label="Medium" value="medium" checked={value === 
-								'medium'} onChange={this.handleChange} />
-							<Form.Field control={Radio} label="Deep" value="deep" checked={value === 
-								'deep'} onChange={this.handleChange} />	
+						<label>Concentration:</label>
+							<Form.Field control={Radio} label="Pale" name="concentration" value="pale" onChange={this.handleInputChange} checked={this.state.concentration === 'pale'}/>
+							<Form.Field control={Radio} label="Medium" name="concentration" value="medium"  onChange={this.handleInputChange} checked={this.state.concentration === 'medium'}/>
+							<Form.Field control={Radio} label="Deep" name="concentration" value="deep" onChange={this.handleInputChange} checked={this.state.concentration === 'deep'}/>	
 					</Form.Group>
 				</Form>
-			</div>
 		)
 		
 	}
