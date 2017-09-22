@@ -7,11 +7,11 @@ import { fetchUsers } from './actions/userActions'
 import NavBar from './components/NavBar'
 
 import { Route} from 'react-router-dom';
-import SignupForm from './components/SignupForm'
-import LoginForm from './components/LoginForm'
+import SignupForm from './components/userComponents/SignupForm'
+import LoginForm from './components/authComponents/LoginForm'
 import LandingPage from './components/LandingPage'
-import UserPage from './components/UserPage'
-import SightForm from './components/SightForm'
+import UserPage from './components/userComponents/UserPage'
+import SightForm from './components/tastingComponents/SightForm'
 
 class App extends Component {
 

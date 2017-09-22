@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-import { loginUser } from '../actions/authActions'
+import { loginUser } from '../../actions/authActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
