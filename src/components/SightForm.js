@@ -16,17 +16,30 @@ class SightForm extends React.Component {
 	}
 
 	handleInputChange = (event, eventProperties) => {
-		const value = eventProperties.value
-		const target = eventProperties.name
-		this.setState({
-			[target]: value
+		if (eventProperties.name === "rim_variation" || eventProperties.name === "gas_evidence") {
+			const newValue = eventProperties.value === "true"
+			const target = eventProperties.name
+			this.setState({
+			[target]: newValue
 		})
+		} else {
+			const value = eventProperties.value
+			const target = eventProperties.name
+			this.setState({
+				[target]: value
+			})
+		}
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault()
+		console.log(this.state)
 	}
 
 	render() {
 
 		return(
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 					<Form.Group inline>
 						<label>Clarity/Visible Sediment:</label>
 							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
@@ -39,6 +52,43 @@ class SightForm extends React.Component {
 							<Form.Field control={Radio} label="Medium" name="concentration" value="medium"  onChange={this.handleInputChange} checked={this.state.concentration === 'medium'}/>
 							<Form.Field control={Radio} label="Deep" name="concentration" value="deep" onChange={this.handleInputChange} checked={this.state.concentration === 'deep'}/>	
 					</Form.Group>
+					<Form.Group inline>
+						<label>Color:</label>
+							<Form.Field control={Radio} label="Water White" name="color" value="water white" onChange={this.handleInputChange} checked={this.state.color === 'water white'}/>
+							<Form.Field control={Radio} label="Straw" name="color" value="straw"  onChange={this.handleInputChange} checked={this.state.color === 'straw'}/>
+							<Form.Field control={Radio} label="Yellow" name="color" value="yellow" onChange={this.handleInputChange} checked={this.state.color === 'yellow'}/>
+							<Form.Field control={Radio} label="Gold" name="color" value="gold" onChange={this.handleInputChange} checked={this.state.color === 'gold'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Secondary Color:</label>
+							<Form.Field control={Radio} label="Pale" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
+							<Form.Field control={Radio} label="Medium" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
+							<Form.Field control={Radio} label="Deep" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Rim Variation:</label>
+							<Form.Field control={Radio} label="Yes" name="rim_variation" value="true" onChange={this.handleInputChange} checked={this.state.rim_variation === true}/>
+							<Form.Field control={Radio} label="No" name="rim_variation" value="false"  onChange={this.handleInputChange} checked={this.state.rim_variation === false}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Staining:</label>
+							<Form.Field control={Radio} label="None" name="staining" value="none" onChange={this.handleInputChange} checked={this.state.staining === 'none'}/>
+							<Form.Field control={Radio} label="Light" name="staining" value="light"  onChange={this.handleInputChange} checked={this.state.staining === 'light'}/>
+							<Form.Field control={Radio} label="Medium" name="staining" value="medium" onChange={this.handleInputChange} checked={this.state.staining === 'medium'}/>
+							<Form.Field control={Radio} label="Heavy" name="staining" value="heavy" onChange={this.handleInputChange} checked={this.state.staining === 'heavy'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Tearing:</label>
+							<Form.Field control={Radio} label="Light" name="tearing" value="light" onChange={this.handleInputChange} checked={this.state.tearing === 'light'}/>
+							<Form.Field control={Radio} label="Medium" name="tearing" value="medium"  onChange={this.handleInputChange} checked={this.state.tearing === 'medium'}/>
+							<Form.Field control={Radio} label="Heavy" name="tearing" value="heavy" onChange={this.handleInputChange} checked={this.state.tearing === 'heavy'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Gas Evidence:</label>
+							<Form.Field control={Radio} label="Yes" name="gas_evidence" value="true" onChange={this.handleInputChange} checked={this.state.gas_evidence === true}/>
+							<Form.Field control={Radio} label="No" name="gas_evidence" value="false"  onChange={this.handleInputChange} checked={this.state.gas_evidence === false}/>	
+					</Form.Group>
+					<Form.Field control={Button}>Submit</Form.Field>
 				</Form>
 		)
 		
