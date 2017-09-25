@@ -1,7 +1,7 @@
 import React from 'react'
-import { Dropdown, Button, Checkbox, Form, Input, Radio, Select } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Input, Radio, TextArea, Checkbox, Select  } from 'semantic-ui-react'
 
-const other_faults = [
+const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },
 		{ key: 'Brettanomyces', text: 'Brettanomyces', value: 'Brettanomyces' },
 		{ key: 'H2S', text: 'H2S', value: 'H2S' },
@@ -68,26 +68,32 @@ class PalateForm extends React.Component {
 
 	state = {
 		wine_score_id: "",
-		clean: "",
-     	faults: "",
-     	other_faults: [],
-     	intensity: "",
-    	age: "",
-     	fruit: "",
-     	fruit_character: "",
-    	non_fruit: "",
-    	organic_earth: "",
-		inorganic_earth: "",
+		sweetness: "",
+     	fruit: [],
+     	fruit_character: [],
+     	fruit_description: "",
+    	non_fruit: [],
+    	organic_earth: [],
+		inorganic_earth: [],
      	wood: "",
      	wood_type: "",
      	wood_age: "",
+     	bitter: "",
+     	tannin: "",
+     	acid: "",
+     	alcohol: "",
+     	body: "",
+     	texture: "",
+     	balance: "",
+     	length: "",
+     	complexity: "",
     	additional_notes: ""
 	}
 
 
 
 	handleInputChange = (event, eventProperties) => {
-		if (eventProperties.name === "clean" || eventProperties.name === "wood") {
+		if (eventProperties.name === "bitter" || eventProperties.name === "wood") {
 			const newValue = eventProperties.value === "true"
 			const target = eventProperties.name
 			this.setState({
@@ -113,25 +119,10 @@ class PalateForm extends React.Component {
 				<Form onSubmit={this.handleSubmit}>
 					<h2>Palate Form</h2>
 					<Form.Group inline>
-						<label>Clean (No Faults):</label>
-							<Form.Field control={Radio} label="Yes" name="rim_variation" value="true" onChange={this.handleInputChange} checked={this.state.rim_variation === true}/>
-							<Form.Field control={Radio} label="No" name="rim_variation" value="false"  onChange={this.handleInputChange} checked={this.state.rim_variation === false}/>	
-					</Form.Group>
-					<Form.Group inline>
-						<label>Specific Faults:</label>
-						<Dropdown placeholder='Select Up To Two' name="other_faults" fluid multiple selection options={other_faults} onChange={this.handleInputChange} />	
-					</Form.Group>
-					<Form.Group inline>
-						<label>Intensity:</label>
-							<Form.Field control={Radio} label="Delicate" name="intensity" value="Delicate" onChange={this.handleInputChange} checked={this.state.intensity === 'Delicate'}/>
-							<Form.Field control={Radio} label="Moderate" name="intensity" value="Moderate"  onChange={this.handleInputChange} checked={this.state.intensity === 'Moderate'}/>
-							<Form.Field control={Radio} label="Powerful" name="intensity" value="Powerful" onChange={this.handleInputChange} checked={this.state.intensity === 'Powerful'}/>
-					</Form.Group>
-					<Form.Group inline>
-						<label>Age Assessment:</label>
-							<Form.Field control={Radio} label="Youthful" name="age" value="Youthful" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Youthful'}/>
-							<Form.Field control={Radio} label="Developing" name="age" value="Developing"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'Developing'}/>
-							<Form.Field control={Radio} label="Vinous" name="age" value="Vinous" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Vinous'}/>	
+						<label>Sweetness:</label>
+							<Form.Field control={Radio} label="Dry" name="sweetness" value="Dry" onChange={this.handleInputChange} checked={this.state.sweetness === 'Dry'}/>
+							<Form.Field control={Radio} label="Off-Dry" name="sweetness" value="Off-Dry"  onChange={this.handleInputChange} checked={this.state.sweetness === 'Off-Dry'}/>
+							<Form.Field control={Radio} label="Sweet" name="sweetness" value="Sweet" onChange={this.handleInputChange} checked={this.state.sweetness === 'Sweet'}/>
 					</Form.Group>
 					<Form.Group inline>
 						<label>Fruit:</label>
@@ -155,19 +146,78 @@ class PalateForm extends React.Component {
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Present?</label>
-							<Form.Field control={Radio} label="Yes" name="wood" value="true" onChange={this.handleInputChange} checked={this.state.gas_evidence === true}/>
-							<Form.Field control={Radio} label="No" name="wood" value="false"  onChange={this.handleInputChange} checked={this.state.gas_evidence === false}/>	
+							<Form.Field control={Radio} label="Yes" name="wood" value="true" onChange={this.handleInputChange} checked={this.state.wood === true}/>
+							<Form.Field control={Radio} label="No" name="wood" value="false"  onChange={this.handleInputChange} checked={this.state.wood === false}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Type:</label>
-							<Form.Field control={Radio} label="American" name="wood_type" value="American" onChange={this.handleInputChange} checked={this.state.secondary_color === 'American'}/>
-							<Form.Field control={Radio} label="French" name="wood_type" value="French"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'French'}/>
+							<Form.Field control={Radio} label="American" name="wood_type" value="American" onChange={this.handleInputChange} checked={this.state.wood_type === 'American'}/>
+							<Form.Field control={Radio} label="French" name="wood_type" value="French"  onChange={this.handleInputChange} checked={this.state.wood_type=== 'French'}/>
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Age:</label>
-							<Form.Field control={Radio} label="Old" name="wood_age" value="Old" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Old'}/>
-							<Form.Field control={Radio} label="New" name="wood_age" value="New"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'New'}/>
+							<Form.Field control={Radio} label="Old" name="wood_age" value="Old" onChange={this.handleInputChange} checked={this.state.wood_age === 'Old'}/>
+							<Form.Field control={Radio} label="New" name="wood_age" value="New"  onChange={this.handleInputChange} checked={this.state.wood_age === 'New'}/>
 					</Form.Group>
+					<Form.Group inline>
+						<label>Bitter, Phenolic (White Wines Only):</label>
+							<Form.Field control={Radio} label="Yes" name="bitter" value="true" onChange={this.handleInputChange} checked={this.state.bitter === true}/>
+							<Form.Field control={Radio} label="No" name="bitter" value="false"  onChange={this.handleInputChange} checked={this.state.bitter === false}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Tannin (Red Wines Only):</label>
+							<Form.Field control={Radio} label="Low" name="tannin" value="Low" onChange={this.handleInputChange} checked={this.state.tannin === 'Low'}/>
+							<Form.Field control={Radio} label="Medium-" name="tannin" value="Medium-"  onChange={this.handleInputChange} checked={this.state.tannin === 'Medium-'}/>
+							<Form.Field control={Radio} label="Medium" name="tannin" value="Medium" onChange={this.handleInputChange} checked={this.state.tannin === 'Medium'}/>
+							<Form.Field control={Radio} label="Medium+" name="tannin" value="Medium+" onChange={this.handleInputChange} checked={this.state.tannin === 'Medium+'}/>
+							<Form.Field control={Radio} label="High" name="tannin" value="High" onChange={this.handleInputChange} checked={this.state.tannin === 'High'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Acid:</label>
+							<Form.Field control={Radio} label="Low" name="acid" value="Low" onChange={this.handleInputChange} checked={this.state.acid === 'Low'}/>
+							<Form.Field control={Radio} label="Medium-" name="acid" value="Medium-"  onChange={this.handleInputChange} checked={this.state.acid === 'Medium-'}/>
+							<Form.Field control={Radio} label="Medium" name="acid" value="Medium" onChange={this.handleInputChange} checked={this.state.acid === 'Medium'}/>
+							<Form.Field control={Radio} label="Medium+" name="acid" value="Medium+" onChange={this.handleInputChange} checked={this.state.acid === 'Medium+'}/>
+							<Form.Field control={Radio} label="High" name="acid" value="High" onChange={this.handleInputChange} checked={this.state.acid === 'High'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Alcohol:</label>
+							<Form.Field control={Radio} label="Low" name="alcohol" value="Low" onChange={this.handleInputChange} checked={this.state.alcohol === 'Low'}/>
+							<Form.Field control={Radio} label="Medium-" name="alcohol" value="Medium-"  onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium-'}/>
+							<Form.Field control={Radio} label="Medium" name="alcohol" value="Medium" onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium'}/>
+							<Form.Field control={Radio} label="Medium+" name="alcohol" value="Medium+" onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium+'}/>
+							<Form.Field control={Radio} label="High" name="alcohol" value="High" onChange={this.handleInputChange} checked={this.state.alcohol === 'High'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Body:</label>
+							<Form.Field control={Radio} label="Light" name="body" value="Light" onChange={this.handleInputChange} checked={this.state.body === 'Light'}/>
+							<Form.Field control={Radio} label="Medium" name="body" value="Medium"  onChange={this.handleInputChange} checked={this.state.body === 'Medium'}/>
+							<Form.Field control={Radio} label="Full" name="body" value="Full" onChange={this.handleInputChange} checked={this.state.body === 'Full'}/>
+					</Form.Group>
+					<Form.Group inline>
+						<label>Texture:</label>
+							<Form.Field control={Radio} label="Creamy" name="texture" value="Creamy" onChange={this.handleInputChange} checked={this.state.texture === 'Creamy'}/>
+							<Form.Field control={Radio} label="Round" name="texture" value="Round"  onChange={this.handleInputChange} checked={this.state.texture === 'Round'}/>
+							<Form.Field control={Radio} label="Lean" name="texture" value="Lean" onChange={this.handleInputChange} checked={this.state.texture === 'Lean'}/>
+					</Form.Group>
+					<Form.TextArea label="Balance" placeholder="Does anything specific dominate?" name="balance" value={this.state.balance} onChange={this.handleInputChange} />
+					<Form.Group inline>
+						<label>Length:</label>
+							<Form.Field control={Radio} label="Short" name="length" value="Short" onChange={this.handleInputChange} checked={this.state.length === 'Short'}/>
+							<Form.Field control={Radio} label="Medium-" name="length" value="Medium-"  onChange={this.handleInputChange} checked={this.state.length === 'Medium-'}/>
+							<Form.Field control={Radio} label="Medium" name="length" value="Medium" onChange={this.handleInputChange} checked={this.state.length === 'Medium'}/>
+							<Form.Field control={Radio} label="Medium+" name="length" value="Medium+" onChange={this.handleInputChange} checked={this.state.length === 'Medium+'}/>
+							<Form.Field control={Radio} label="Long" name="length" value="Long" onChange={this.handleInputChange} checked={this.state.length === 'Long'}/>	
+					</Form.Group>
+					<Form.Group inline>
+						<label>Complexity:</label>
+							<Form.Field control={Radio} label="Low" name="complexity" value="Low" onChange={this.handleInputChange} checked={this.state.complexity === 'Low'}/>
+							<Form.Field control={Radio} label="Medium-" name="complexity" value="Medium-"  onChange={this.handleInputChange} checked={this.state.complexity === 'Medium-'}/>
+							<Form.Field control={Radio} label="Medium" name="complexity" value="Medium" onChange={this.handleInputChange} checked={this.state.complexity === 'Medium'}/>
+							<Form.Field control={Radio} label="Medium+" name="complexity" value="Medium+" onChange={this.handleInputChange} checked={this.state.complexity === 'Medium+'}/>
+							<Form.Field control={Radio} label="High" name="complexity" value="High" onChange={this.handleInputChange} checked={this.state.complexity === 'High'}/>	
+					</Form.Group>
+					<Form.TextArea label="Additional Notes" placeholder="Enter any specific notes here..." name="additional_notes" value={this.state.additional_notes} onChange={this.handleInputChange} />
 					<Form.Field control={Button}>Submit</Form.Field>
 				</Form>
 		)

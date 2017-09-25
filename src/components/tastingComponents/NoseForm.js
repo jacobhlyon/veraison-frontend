@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Button, Form, Input, Radio, TextAreaButton, Checkbox, Select  } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Input, Radio, TextArea, Checkbox, Select  } from 'semantic-ui-react'
 
 const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },
@@ -75,6 +75,7 @@ class NoseForm extends React.Component {
     	age: "",
      	fruit: [],
      	fruit_character: [],
+     	fruit_description: "",
     	non_fruit: [],
     	organic_earth: [],
 		inorganic_earth: [],
@@ -142,6 +143,7 @@ class NoseForm extends React.Component {
 						<label>Fruit Character:</label>
 							<Dropdown placeholder='Select Up To Two' name="fruit_character" fluid multiple selection options={fruit_character} onChange={this.handleInputChange} />	
 					</Form.Group>
+					<Form.TextArea label="Fruit Description" placeholder="Enter any specific notes here..." name="fruit_description" value={this.state.fruit_description} onChange={this.handleInputChange} />
 					<Form.Group inline>
 						<label>Non-Fruit:</label>
 							<Dropdown placeholder='Select Up To Two' name="non-fruit" fluid multiple selection options={non_fruit} onChange={this.handleInputChange} />	
