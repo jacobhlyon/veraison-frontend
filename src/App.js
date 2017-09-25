@@ -29,9 +29,6 @@ class App extends Component {
 
   render() {
 
-    console.log(this.props.users)
-    console.log("I am state!", this.props.wine)
-
     return (
       <div className="App">
         <NavBar />
