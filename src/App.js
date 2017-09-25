@@ -15,6 +15,7 @@ import SightForm from './components/tastingComponents/SightForm'
 import NoseForm from './components/tastingComponents/NoseForm'
 import PalateForm from './components/tastingComponents/PalateForm'
 import WineSearchForm from './components/wineComponents/WineSearchForm'
+import WineSearchResults from './components/wineComponents/WineSearchResults'
 
 class App extends Component {
 
@@ -29,12 +30,13 @@ class App extends Component {
   render() {
 
     console.log(this.props.users)
+    console.log("I am state!", this.props.wine)
 
     return (
       <div className="App">
         <NavBar />
         <div>
-            <Route path="/winesearch" component={WineSearchForm} />
+            <Route path="/winesearch" render={({history}) => <WineSearchForm history={history}/>} />
             <Route path="/sightform" component={SightForm} />
             <Route path="/noseform" component={NoseForm} />
             <Route exact path="/" component={LandingPage}/>
@@ -42,6 +44,7 @@ class App extends Component {
             <Route path="/signup" component={SignupForm} />
             <Route path="/user" component={UserPage} />
             <Route path="/palateform" component={PalateForm} />
+            <Route path="/winesearchresults" component={WineSearchResults} />
         </div>
       </div>
     );
@@ -49,7 +52,8 @@ class App extends Component {
 }
   function mapStateToProps(state) {
     return {
-      users:state.users.allUsers
+      users: state.users.allUsers,
+      wine: state.wine
     }
   }
 

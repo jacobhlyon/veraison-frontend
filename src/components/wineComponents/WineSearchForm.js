@@ -32,11 +32,12 @@ class WineSearchForm extends React.Component {
 		const vintage = this.state.vintage
 
 		this.props.searchNewWine(winery, varietal, vintage)
-			// .then(this.setState({
-			// 	winery: "",
-			// 	varietal: "",
-			// 	vintage: ""
-			// }))
+			.then(this.setState({
+				winery: "",
+				varietal: "",
+				vintage: ""
+			}))
+			.then(this.props.history.push('/winesearchresults'))
 	}
 
 	render() {
