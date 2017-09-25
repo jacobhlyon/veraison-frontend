@@ -12,6 +12,7 @@ import LoginForm from './components/authComponents/LoginForm'
 import LandingPage from './components/LandingPage'
 import UserPage from './components/userComponents/UserPage'
 import SightForm from './components/tastingComponents/SightForm'
+import NoseForm from './components/tastingComponents/NoseForm'
 
 class App extends Component {
 
@@ -32,6 +33,7 @@ class App extends Component {
         <NavBar />
         <div>
             <Route path="/sightform" component={SightForm} />
+            <Route path="/noseform" component={NoseForm} />
             <Route exact path="/" component={LandingPage}/>
             <Route path="/login" component={LoginForm}/>
             <Route path="/signup" component={SignupForm} />
