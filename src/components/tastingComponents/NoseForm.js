@@ -146,7 +146,7 @@ class NoseForm extends React.Component {
 					<Form.TextArea label="Fruit Description" placeholder="Enter any specific notes here..." name="fruit_description" value={this.state.fruit_description} onChange={this.handleInputChange} />
 					<Form.Group inline>
 						<label>Non-Fruit:</label>
-							<Dropdown placeholder='Select Up To Two' name="non-fruit" fluid multiple selection options={non_fruit} onChange={this.handleInputChange} />	
+							<Dropdown placeholder='Select Up To Two' name="non_fruit" fluid multiple selection options={non_fruit} onChange={this.handleInputChange} />	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Organic Earth:</label>

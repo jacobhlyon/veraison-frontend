@@ -14,6 +14,7 @@ import UserPage from './components/userComponents/UserPage'
 import SightForm from './components/tastingComponents/SightForm'
 import NoseForm from './components/tastingComponents/NoseForm'
 import PalateForm from './components/tastingComponents/PalateForm'
+import WineSearchForm from './components/wineComponents/WineSearchForm'
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div>
+            <Route path="/winesearch" component={WineSearchForm} />
             <Route path="/sightform" component={SightForm} />
             <Route path="/noseform" component={NoseForm} />
             <Route exact path="/" component={LandingPage}/>

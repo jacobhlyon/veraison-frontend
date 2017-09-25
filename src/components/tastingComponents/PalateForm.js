@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Button, Form, Input, Radio, TextArea, Checkbox, Select  } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Radio, TextArea, } from 'semantic-ui-react'
 
 const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },
@@ -132,9 +132,10 @@ class PalateForm extends React.Component {
 						<label>Fruit Character:</label>
 							<Dropdown placeholder='Select Up To Two' name="fruit_character" fluid multiple selection options={fruit_character} onChange={this.handleInputChange} />	
 					</Form.Group>
+					<Form.TextArea label="Fruit Description" placeholder="Enter any specific notes here..." name="fruit_description" value={this.state.fruit_description} onChange={this.handleInputChange} />
 					<Form.Group inline>
 						<label>Non-Fruit:</label>
-							<Dropdown placeholder='Select Up To Two' name="non-fruit" fluid multiple selection options={non_fruit} onChange={this.handleInputChange} />	
+							<Dropdown placeholder='Select Up To Two' name="non_fruit" fluid multiple selection options={non_fruit} onChange={this.handleInputChange} />	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Organic Earth:</label>
