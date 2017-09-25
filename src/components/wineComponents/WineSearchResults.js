@@ -7,9 +7,18 @@ class WineSearchResults extends React.Component {
 
 	// console.log(this.props.wine)
 
+	handleClick = (wine) => {
+		console.log(wine)
+	}
+
+	componentWillMount() {
+		if(!this.props.wine) {
+			this.props.history.push('/winesearch')
+		}
+	}
+
 	render() {
-		console.log(this.props.wine)
-		const allWines = this.props.wine.map(wine => <WineSearchResultsContainer props={wine} key={wine.code}/>)
+		const allWines = this.props.wine.map(wine => <WineSearchResultsContainer handleClick={this.handleClick} props={wine} key={wine.code}/>)
 		return(
 			<Card.Group> 
 				{allWines}

@@ -4,7 +4,7 @@ import { Button, Card, Image } from 'semantic-ui-react'
 const WineSearchResultsContainer = (wine) => {
 	console.log(wine)
 	return (
-		<Card> 
+		<Card onClick={() => wine.handleClick(wine.props)}> 
 			<Card.Content>
 				<Image size='small' src={wine.props.image} />
 				<Card.Header>
