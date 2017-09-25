@@ -9,8 +9,9 @@ import thunk from 'redux-thunk'
 import usersReducer from './reducers/usersReducer'
 import authReducer from './reducers/authReducer'
 import { BrowserRouter as Router } from 'react-router-dom';
+import wineReducer from './reducers/wineReducer'
 
-const rootReducer = combineReducers({users: usersReducer, auth: authReducer})
+const rootReducer = combineReducers({users: usersReducer, auth: authReducer, wine: wineReducer})
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 // console.log(store.getState())
