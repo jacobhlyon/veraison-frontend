@@ -1,7 +1,7 @@
 import React from 'react'
-import { Dropdown, Button, Checkbox, Form, Input, Radio, Select } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Input, Radio, TextAreaButton, Checkbox, Select  } from 'semantic-ui-react'
 
-const other_faults = [
+const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },
 		{ key: 'Brettanomyces', text: 'Brettanomyces', value: 'Brettanomyces' },
 		{ key: 'H2S', text: 'H2S', value: 'H2S' },
@@ -63,9 +63,6 @@ const inorganic_earth = [
 		{ key: 'Flint', text: 'Flint', value: 'Flint' }
 	]
 
-const DropdownMultipleSelect = () => (
-  <Dropdown placeholder='Select' fluid multiple selection options={other_faults} />
-)
 
 class NoseForm extends React.Component {
 
@@ -76,11 +73,11 @@ class NoseForm extends React.Component {
      	other_faults: [],
      	intensity: "",
     	age: "",
-     	fruit: "",
-     	fruit_character: "",
-    	non_fruit: "",
-    	organic_earth: "",
-		inorganic_earth: "",
+     	fruit: [],
+     	fruit_character: [],
+    	non_fruit: [],
+    	organic_earth: [],
+		inorganic_earth: [],
      	wood: "",
      	wood_type: "",
      	wood_age: "",
@@ -117,13 +114,14 @@ class NoseForm extends React.Component {
 					<h2>Nose Form</h2>
 					<Form.Group inline>
 						<label>Clean (No Faults):</label>
-							<Form.Field control={Radio} label="Yes" name="rim_variation" value="true" onChange={this.handleInputChange} checked={this.state.rim_variation === true}/>
-							<Form.Field control={Radio} label="No" name="rim_variation" value="false"  onChange={this.handleInputChange} checked={this.state.rim_variation === false}/>	
+							<Form.Field control={Radio} label="Yes" name="clean" value="true" onChange={this.handleInputChange} checked={this.state.clean === true}/>
+							<Form.Field control={Radio} label="No" name="clean" value="false"  onChange={this.handleInputChange} checked={this.state.clean === false}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Specific Faults:</label>
-						<Dropdown placeholder='Select Up To Two' name="other_faults" fluid multiple selection options={other_faults} onChange={this.handleInputChange} />	
+						<Dropdown placeholder='Select Up To Two' name="faults" fluid multiple selection options={faults} onChange={this.handleInputChange} />	
 					</Form.Group>
+					<Form.TextArea label="Other Faults" placeholder="Enter any specific notes here..." name="other_faults" value={this.state.other_faults} onChange={this.handleInputChange} />
 					<Form.Group inline>
 						<label>Intensity:</label>
 							<Form.Field control={Radio} label="Delicate" name="intensity" value="Delicate" onChange={this.handleInputChange} checked={this.state.intensity === 'Delicate'}/>
@@ -132,9 +130,9 @@ class NoseForm extends React.Component {
 					</Form.Group>
 					<Form.Group inline>
 						<label>Age Assessment:</label>
-							<Form.Field control={Radio} label="Youthful" name="age" value="Youthful" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Youthful'}/>
-							<Form.Field control={Radio} label="Developing" name="age" value="Developing"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'Developing'}/>
-							<Form.Field control={Radio} label="Vinous" name="age" value="Vinous" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Vinous'}/>	
+							<Form.Field control={Radio} label="Youthful" name="age" value="Youthful" onChange={this.handleInputChange} checked={this.state.age === 'Youthful'}/>
+							<Form.Field control={Radio} label="Developing" name="age" value="Developing"  onChange={this.handleInputChange} checked={this.state.age === 'Developing'}/>
+							<Form.Field control={Radio} label="Vinous" name="age" value="Vinous" onChange={this.handleInputChange} checked={this.state.age === 'Vinous'}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Fruit:</label>
@@ -158,19 +156,20 @@ class NoseForm extends React.Component {
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Present?</label>
-							<Form.Field control={Radio} label="Yes" name="wood" value="true" onChange={this.handleInputChange} checked={this.state.gas_evidence === true}/>
-							<Form.Field control={Radio} label="No" name="wood" value="false"  onChange={this.handleInputChange} checked={this.state.gas_evidence === false}/>	
+							<Form.Field control={Radio} label="Yes" name="wood" value="true" onChange={this.handleInputChange} checked={this.state.wood === true}/>
+							<Form.Field control={Radio} label="No" name="wood" value="false"  onChange={this.handleInputChange} checked={this.state.wood === false}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Type:</label>
-							<Form.Field control={Radio} label="American" name="wood_type" value="American" onChange={this.handleInputChange} checked={this.state.secondary_color === 'American'}/>
-							<Form.Field control={Radio} label="French" name="wood_type" value="French"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'French'}/>
+							<Form.Field control={Radio} label="American" name="wood_type" value="American" onChange={this.handleInputChange} checked={this.state.wood_type === 'American'}/>
+							<Form.Field control={Radio} label="French" name="wood_type" value="French"  onChange={this.handleInputChange} checked={this.state.wood_type=== 'French'}/>
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Age:</label>
-							<Form.Field control={Radio} label="Old" name="wood_age" value="Old" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Old'}/>
-							<Form.Field control={Radio} label="New" name="wood_age" value="New"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'New'}/>
+							<Form.Field control={Radio} label="Old" name="wood_age" value="Old" onChange={this.handleInputChange} checked={this.state.wood_age === 'Old'}/>
+							<Form.Field control={Radio} label="New" name="wood_age" value="New"  onChange={this.handleInputChange} checked={this.state.wood_age === 'New'}/>
 					</Form.Group>
+					<Form.TextArea label="Additional Notes" placeholder="Enter any specific notes here..." name="additional_notes" value={this.state.additional_notes} onChange={this.handleInputChange} />
 					<Form.Field control={Button}>Submit</Form.Field>
 				</Form>
 		)

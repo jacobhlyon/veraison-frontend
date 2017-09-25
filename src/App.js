@@ -13,6 +13,7 @@ import LandingPage from './components/LandingPage'
 import UserPage from './components/userComponents/UserPage'
 import SightForm from './components/tastingComponents/SightForm'
 import NoseForm from './components/tastingComponents/NoseForm'
+import PalateForm from './components/tastingComponents/PalateForm'
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
             <Route path="/login" component={LoginForm}/>
             <Route path="/signup" component={SignupForm} />
             <Route path="/user" component={UserPage} />
+            <Route path="/palateform" component={PalateForm} />
         </div>
       </div>
     );

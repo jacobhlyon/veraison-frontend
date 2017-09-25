@@ -40,6 +40,7 @@ class SightForm extends React.Component {
 
 		return(
 				<Form onSubmit={this.handleSubmit}>
+					<h2>Sight Form</h2>
 					<Form.Group inline>
 						<label>Clarity/Visible Sediment:</label>
 							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
