@@ -3,13 +3,14 @@ import React from 'react'
 
 function authorize(RenderedComponent, props){
   return class extends React.Component {
+    
     componentWillMount() {
-        if (!localStorage.getItem('token') && this.props.location.pathname !== "login" && this.props.location.pathname !== '/') {
+        if (!localStorage.getItem('token') && this.props.location.pathname !== "login" && this.props.location.pathname !== '/' && this.props.location.pathname !== '/signup') {
           this.props.history.push("/login")
         } else {
-
         }
     }
+
     render() {
 
       return (<RenderedComponent {...props} {...this.props}/>)
@@ -17,6 +18,5 @@ function authorize(RenderedComponent, props){
     }
   }
 }
-
 
 export default authorize

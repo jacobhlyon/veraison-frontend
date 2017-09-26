@@ -1,11 +1,13 @@
-function authReducer(state = {}, action) {
+function authReducer(state = {currentUser: {}}, action) {
 	switch (action.type) {
 		case "LOGGED_IN":
 			localStorage.setItem("token", action.payload.jwt)
-			return Object.assign({}, state, {current_user: action.payload.user})
+			return Object.assign({}, state, {currentUser: action.payload.user})
 		case "LOGGED_OUT":
 			localStorage.removeItem("token")
-			return Object.assign({}, state, {current_user: {}})
+			return Object.assign({}, state, {currentUser: {}})
+		case "CONFIRMED_CURRENT_USER":
+			return Object.assign({}, state, {currentUser: action.payload})
 		default:
 			return state
 	}

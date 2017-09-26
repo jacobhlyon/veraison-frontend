@@ -6,7 +6,7 @@ function usersReducer(state = {currentUser: {}}, action) {
 		case "CREATED_USER":
 		console.log(action.payload)
 			localStorage.setItem("token", action.payload.jwt)
-			return Object.assign({}, state, {current_user: action.payload.user})
+			return Object.assign({}, state, {current_user: action.payload})
 		default:
 			return state
 	}

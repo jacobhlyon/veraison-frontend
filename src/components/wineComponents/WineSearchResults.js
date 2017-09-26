@@ -10,6 +10,11 @@ class WineSearchResults extends React.Component {
 	// console.log(this.props.wine)
 
 	handleClick = (wine) => {
+	// 		const wineImage = if(wine.props.image == '') {
+	// 	"https://images.unsplash.com/photo-1495929427389-a6451f2e01fa?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop="
+	// } else {
+	// 	wine.image
+	// }
 		const data = {
 			name: wine.name,
 			vintage: wine.vintage,
@@ -19,11 +24,11 @@ class WineSearchResults extends React.Component {
 			image: wine.image,
 			winery: wine.winery,
 			snooth_rank: wine.snoothrank,
-			region: wine.regionv
+			region: wine.region
 		}
 		this.props.persistWine(data)
 			.then(data => console.log(this.state))
-			.then(data => this.props.history.push('/sightform'))
+			.then(data => this.props.history.push('/form/new'))
 	}
 
 	//this should prevent a page loading if there are no results

@@ -18,21 +18,22 @@ import WineSearchForm from './components/wineComponents/WineSearchForm'
 import WineSearchResults from './components/wineComponents/WineSearchResults'
 import authorize from './components/hocs/authorize.js'
 import { withRouter } from 'react-router'
+import { confirmCurrentUser } from './actions/authActions'
+import NewTastingForm from './components/tastingComponents/NewTastingForm'
 
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchUsers()
-    console.log(this.props.wine)
+    const currentUser = localStorage.getItem('token')
+    this.props.confirmCurrentUser(currentUser)
   }
-
-
 
 
 
   render() {
     const jwt = localStorage.getItem('token')
     console.log(jwt)
+    console.log(this.props)
 
     return (
       <div className="App">
@@ -47,6 +48,7 @@ class App extends Component {
             <Route path="/user" component={UserPage} />
             <Route path="/palateform" component={PalateForm} />
             <Route path="/winesearchresults" component={WineSearchResults} />
+            <Route path="/form/new" component={NewTastingForm} />
         </div>
       </div>
     );
@@ -54,13 +56,14 @@ class App extends Component {
 }
   function mapStateToProps(state) {
     return {
-      users: state.users.allUsers,
-      wine: state.wine
+      wine: state.wine,
+      auth: state.auth.currentUser,
+      user: state.user
     }
   }
 
   function mapDispatchToProps(dispatch) {
-    return bindActionCreators({fetchUsers}, dispatch)
+    return bindActionCreators({fetchUsers, confirmCurrentUser}, dispatch)
   }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(authorize(App)));
