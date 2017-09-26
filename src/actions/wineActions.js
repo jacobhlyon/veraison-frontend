@@ -9,5 +9,24 @@ export function searchNewWine(winery, varietal, vintage) {
 	}
 }
 
+export function persistWine(data) {
+	return function(dispatch) {
+		console.log(data)
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+	    return fetch('http://localhost:3000/api/v1/wines', requestInfo)
+	      .then(res => res.json())
+	      .then(json => {
+	      	dispatch({type: "PERSISTED_WINE", payload: json})
+	      })
+	}
+}
+
 
 

@@ -35,7 +35,7 @@ class SignupForm extends React.Component {
 	    }
 
 	    this.props.createUser(newUserParams)
-	      .then(
+	      .then( data =>
 	        this.setState({
 	          	first_name: "",
 			  	last_name: "",
@@ -43,10 +43,7 @@ class SignupForm extends React.Component {
 			 	 password: "",
 				password_confirmation: ""
 	        })
-	      )
-	        // this.props.history.replace("/")
-	        // then I'll want to redirect to user page
-
+	      ).then(data => this.props.history.replace("/user"))
 	}
 
 

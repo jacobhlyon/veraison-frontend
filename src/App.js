@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import { fetchUsers } from './actions/userActions'
 import NavBar from './components/NavBar'
 
-import { Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import SignupForm from './components/userComponents/SignupForm'
 import LoginForm from './components/authComponents/LoginForm'
 import LandingPage from './components/LandingPage'
@@ -16,11 +16,14 @@ import NoseForm from './components/tastingComponents/NoseForm'
 import PalateForm from './components/tastingComponents/PalateForm'
 import WineSearchForm from './components/wineComponents/WineSearchForm'
 import WineSearchResults from './components/wineComponents/WineSearchResults'
+import authorize from './components/hocs/authorize.js'
+import { withRouter } from 'react-router'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchUsers()
+    console.log(this.props.wine)
   }
 
 
@@ -28,6 +31,8 @@ class App extends Component {
 
 
   render() {
+    const jwt = localStorage.getItem('token')
+    console.log(jwt)
 
     return (
       <div className="App">
@@ -37,7 +42,7 @@ class App extends Component {
             <Route path="/sightform" component={SightForm} />
             <Route path="/noseform" component={NoseForm} />
             <Route exact path="/" component={LandingPage}/>
-            <Route path="/login" component={LoginForm}/>
+            <Route path="/login" render={({history}) => <LoginForm history={history}/>} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/user" component={UserPage} />
             <Route path="/palateform" component={PalateForm} />
@@ -58,4 +63,4 @@ class App extends Component {
     return bindActionCreators({fetchUsers}, dispatch)
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(authorize(App)));

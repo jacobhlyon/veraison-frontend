@@ -1,5 +1,8 @@
 import React from 'react'
 import { Menu, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { logoutUser } from '../actions/authActions'
 
 class NavBar extends React.Component {
 	state = {
@@ -13,6 +16,10 @@ class NavBar extends React.Component {
 		})
 	}
 
+	handleLogOut = (event) => {
+		this.props.logoutUser()
+	}
+
 	render() {
 		const { activeItem } = this.state
 
@@ -24,6 +31,9 @@ class NavBar extends React.Component {
 					<Menu.Item>
 						<Button primary href='/login'>Log In</Button>
 					</Menu.Item>
+					<Menu.Item>
+						<Button primary href='/' onClick={this.handleLogOut}>Log Out</Button>
+					</Menu.Item>
 				</Menu.Menu>
 
 			</Menu>		
@@ -31,4 +41,8 @@ class NavBar extends React.Component {
 	}
 }
 
-export default NavBar
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({logoutUser}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(NavBar)

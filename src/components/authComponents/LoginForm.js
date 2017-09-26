@@ -3,6 +3,7 @@ import { Button, Form } from 'semantic-ui-react'
 import { loginUser } from '../../actions/authActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 
 class LoginForm extends React.Component {
 
@@ -10,6 +11,10 @@ class LoginForm extends React.Component {
 	state = {
 		email: "",
 		password: ""
+	}
+
+	componentWillUnmount(){
+		console.log("I'm going away! LoginForm")
 	}
 
 	handleInputChange = (event) => {
@@ -28,32 +33,35 @@ class LoginForm extends React.Component {
 	      password: this.state.password
 	    }
 
-	    this.props.loginUser(userParams)
-	      	.then(
+	    this.props.loginUser(userParams, this.props.history)
+	      	.then( data => {
 	        	this.setState({
 	          		email: "",
 	          		password: ""
-	        	})
-	      	)
-	        // this.props.history.replace("/")
-
+	        	})	
+	      	this.props.history.push('/user')
+	      	})
 	  }
 
 
 
 	render() {
 		return	(
-			<Form onSubmit={this.handleSubmit}>
-				<Form.Field>
-					<label>Email</label>
-					<input placeholder='Email' data-name="email" onChange={this.handleInputChange} value={this.state.email}/>
-				</Form.Field>
-				<Form.Field>
-					<label>Password</label>
-					<input placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
-				</Form.Field>
-				<Button type='submit'>Submit</Button>
-			</Form>
+			<div>
+				<Form onSubmit={this.handleSubmit}>
+					<Form.Field>
+						<label>Email</label>
+						<input placeholder='Email' data-name="email" onChange={this.handleInputChange} value={this.state.email}/>
+					</Form.Field>
+					<Form.Field>
+						<label>Password</label>
+						<input placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
+					</Form.Field>
+					<Button type='submit'>Submit</Button>
+				</Form>
+				<h3>Don't have an account?</h3> 
+				<a href="/signup">Sign up for Veraison</a>
+			</div>
 		)
 	}
 

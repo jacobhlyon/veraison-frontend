@@ -1,4 +1,4 @@
-export function loginUser(data) {
+export function loginUser(data, history) {
 	return function(dispatch) {
 		const userJSON = JSON.stringify(data)
 	    const requestInfo = {
@@ -14,6 +14,8 @@ export function loginUser(data) {
 	      .then(json => {
 	      	dispatch({type: "LOGGED_IN", payload: json})
 	      })
+	      
+	     
 	}
 }
 

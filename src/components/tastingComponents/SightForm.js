@@ -36,6 +36,7 @@ class SightForm extends React.Component {
 		console.log(this.state)
 	}
 
+
 	render() {
 
 		return(
@@ -94,6 +95,8 @@ class SightForm extends React.Component {
 		)
 		
 	}
+
+	mapStateToProps
 }
 
 export default SightForm
