@@ -28,5 +28,23 @@ export function persistWine(data) {
 	}
 }
 
+export function createWineScore(data) {
+	return function(dispatch) {
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+	    return fetch('http://localhost:3000/api/v1/wine_scores', requestInfo)
+	      .then(res => res.json())
+	      .then(json => {
+	      	dispatch({type: "CREATED_WINE_SCORE", payload: json})
+	      })
+	}
+}
+
 
 

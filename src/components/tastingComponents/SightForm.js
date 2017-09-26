@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input, Radio, Select } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 class SightForm extends React.Component {
 
@@ -38,6 +39,8 @@ class SightForm extends React.Component {
 
 
 	render() {
+
+		console.log(this.props)
 
 		return(
 				<Form onSubmit={this.handleSubmit}>
@@ -96,7 +99,12 @@ class SightForm extends React.Component {
 		
 	}
 
-	mapStateToProps
 }
 
-export default SightForm
+function mapStateToProps(state) {
+	return {
+		wine: state.wine
+	}
+}
+
+export default connect(mapStateToProps)(SightForm)
