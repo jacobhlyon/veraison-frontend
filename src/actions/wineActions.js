@@ -46,5 +46,58 @@ export function createWineScore(data) {
 	}
 }
 
+export function createSightScore(data) {
+	return function(dispatch) {
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+	    return fetch('http://localhost:3000/api/v1/sight_scores', requestInfo)
+	      .then(res => res.json())
+	      .then(json => {
+	      	dispatch({type: "CREATED_SIGHT_SCORE", payload: json})
+	      })
+	}
+}
+
+export function createNoseScore(data) {
+	return function(dispatch) {
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+	    return fetch('http://localhost:3000/api/v1/nose_scores', requestInfo)
+	      .then(res => res.json())
+	      .then(json => {
+	      	dispatch({type: "CREATED_NOSE_SCORE", payload: json})
+	      })
+	}
+}
+
+export function createPalateScore(data) {
+	return function(dispatch) {
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+	    return fetch('http://localhost:3000/api/v1/palate_scores', requestInfo)
+	      .then(res => res.json())
+	      .then(json => {
+	      	dispatch({type: "CREATED_PALATE_SCORE", payload: json})
+	      })
+	}
+}
 
 

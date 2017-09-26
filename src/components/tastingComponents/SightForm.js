@@ -1,6 +1,8 @@
 import React from 'react'
-import { Button, Checkbox, Form, Input, Radio, Select } from 'semantic-ui-react'
+import { Button, Form, Radio} from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createSightScore } from '../../actions/wineActions'
 
 class SightForm extends React.Component {
 
@@ -34,14 +36,26 @@ class SightForm extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state)
+		
+		const sightFormParams = {
+			wine_score_id: this.props.wine.currentWineScore.id,
+			clarity: this.state.clarity,
+	     	concentration: this.state.concentration,
+	     	color: this.state.color,
+	     	secondary_color: this.state.secondary_color,
+	    	rim_variation: this.state.rim_variation,
+	     	staining: this.state.staining,
+	     	tearing: this.state.tearing,
+	    	gas_evidence: this.state.gas_evidence
+		}
+		this.props.createSightScore(sightFormParams)
+			.then(data => this.props.history.push('/noseform'))
+
 	}
 
 
 	render() {
-
-		console.log(this.props)
-
+		
 		return(
 				<Form onSubmit={this.handleSubmit}>
 					<h2>Sight Form</h2>
@@ -101,10 +115,16 @@ class SightForm extends React.Component {
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state){
+
 	return {
-		wine: state.wine
+		wine: state.wine,
+		auth: state.auth.currentUser
 	}
 }
 
-export default connect(mapStateToProps)(SightForm)
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({createSightScore}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SightForm)

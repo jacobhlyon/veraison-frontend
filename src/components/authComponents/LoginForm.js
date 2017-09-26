@@ -3,7 +3,6 @@ import { Button, Form } from 'semantic-ui-react'
 import { loginUser } from '../../actions/authActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
 
 class LoginForm extends React.Component {
 

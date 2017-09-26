@@ -1,5 +1,8 @@
 import React from 'react'
-import { Dropdown, Button, Form, Input, Radio, TextArea, Checkbox, Select  } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Radio, TextArea, Select  } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createNoseScore } from '../../actions/wineActions'
 
 const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },
@@ -69,8 +72,8 @@ class NoseForm extends React.Component {
 	state = {
 		wine_score_id: "",
 		clean: "",
-     	faults: "",
-     	other_faults: [],
+     	faults: [],
+     	other_faults: "",
      	intensity: "",
     	age: "",
      	fruit: [],
@@ -104,8 +107,30 @@ class NoseForm extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		event.preventDefault()
 		console.log(this.state)
+		event.preventDefault()
+
+		const noseScoreParams = {
+		wine_score_id: this.props.wine.currentWineScore.id,
+		clean: this.state.clean,
+     	faults: this.state.faults,
+     	other_faults: this.state.other_faults,
+     	intensity: this.state.intensity,
+    	age: this.state.age,
+     	fruit: this.state.fruit,
+     	fruit_character: this.state.fruit_character,
+     	fruit_description: this.state.fruit_description,
+    	non_fruit: this.state.non_fruit,
+    	organic_earth: this.state.organic_earth,
+		inorganic_earth: this.state.inorganic_earth,
+     	wood: this.state.wood,
+     	wood_type: this.state.wood_type,
+     	wood_age: this.state.wood_age,
+    	additional_notes: this.state.additional_notes
+		}
+		console.log(noseScoreParams)
+		this.props.createNoseScore(noseScoreParams)
+			.then(this.props.history.push('/palateform'))
 	}
 
 	render() {
@@ -179,4 +204,17 @@ class NoseForm extends React.Component {
 	}
 }
 
-export default NoseForm
+
+function mapStateToProps(state){
+
+	return {
+		wine: state.wine,
+		auth: state.auth.currentUser
+	}
+}
+
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({createNoseScore}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoseForm)

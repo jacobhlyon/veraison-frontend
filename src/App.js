@@ -20,6 +20,7 @@ import authorize from './components/hocs/authorize.js'
 import { withRouter } from 'react-router'
 import { confirmCurrentUser } from './actions/authActions'
 import NewTastingForm from './components/tastingComponents/NewTastingForm'
+import WinePage from './components/wineComponents/WinePage'
 
 class App extends Component {
 
@@ -31,8 +32,6 @@ class App extends Component {
 
 
   render() {
-    const jwt = localStorage.getItem('token')
-    console.log(jwt)
     console.log(this.props)
 
     return (
@@ -49,6 +48,7 @@ class App extends Component {
             <Route path="/palateform" component={PalateForm} />
             <Route path="/winesearchresults" component={WineSearchResults} />
             <Route path="/form/new" component={NewTastingForm} />
+            <Route path="/winepage" component={WinePage} />
         </div>
       </div>
     );

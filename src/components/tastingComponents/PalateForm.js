@@ -1,14 +1,8 @@
 import React from 'react'
-import { Dropdown, Button, Form, Radio, TextArea, } from 'semantic-ui-react'
-
-const faults = [
-		{ key: 'TCA', text: 'TCA', value: 'TCA' },
-		{ key: 'Brettanomyces', text: 'Brettanomyces', value: 'Brettanomyces' },
-		{ key: 'H2S', text: 'H2S', value: 'H2S' },
-		{ key: 'Volatile Acidity', text: 'Volatile Acidity', value: 'Volatile Acidity' },
-		{ key: 'Ethyl Acetate', text: 'Ethyl Acetate', value: 'Ethyl Acetate' },
-		{ key: 'Oxidation', text: 'Oxidation', value: 'Oxidation' }
-	]
+import { Dropdown, Button, Form, Radio, TextArea } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createPalateScore } from '../../actions/wineActions' 
 
 const white_fruit = [
 		{ key: 'Citrus', text: 'Citrus', value: 'Citrus' },
@@ -110,7 +104,35 @@ class PalateForm extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state)
+
+		console.log("fruits", this.state.fruit)
+
+		const palateScoreParams = {
+		wine_score_id: this.props.wine.currentWineScore.id,
+		sweetness: this.state.sweetness,
+     	fruit: this.state.fruit,
+     	fruit_character: this.state.fruit_character,
+     	fruit_description: this.state.fruit_description,
+    	non_fruit: this.state.non_fruit,
+    	organic_earth: this.state.organic_earth,
+		inorganic_earth: this.state.inorganic_earth,
+     	wood: this.state.wood,
+     	wood_type: this.state.wood_type,
+     	wood_age: this.state.wood_age,
+     	bitter: this.state.bitter,
+     	tannin: this.state.tannin,
+     	acid: this.state.acid,
+     	alcohol: this.state.alcohol,
+     	body: this.state.body,
+     	texture: this.state.texture,
+     	balance: this.state.balance,
+     	length: this.state.length,
+     	complexity: this.state.complexity,
+    	additional_notes: this.state.additional_notes
+	}
+		console.log(palateScoreParams)
+		this.props.createPalateScore(palateScoreParams)
+			.then(data => this.props.history.push('/winepage'))
 	}
 
 	render() {
@@ -226,4 +248,16 @@ class PalateForm extends React.Component {
 	}
 }
 
-export default PalateForm
+function mapStateToProps(state){
+
+	return {
+		wine: state.wine,
+		auth: state.auth.currentUser
+	}
+}
+
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({createPalateScore}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PalateForm)
