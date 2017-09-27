@@ -1,6 +1,6 @@
 import React from 'react'
 
-class UserPage extends React.Component {
+class UserProfile extends React.Component {
 
 
 
@@ -13,4 +13,4 @@ class UserPage extends React.Component {
 	}
 }
 
-export default UserPage
+export default UserProfile

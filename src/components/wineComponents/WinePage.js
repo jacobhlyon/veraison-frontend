@@ -1,11 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Table } from 'semantic-ui-react'
+import SightResultsContainer from './SightResultsContainer'
 
 class WinePage extends React.Component {
 
+
 	render() {
-		console.log(this.props)
+
+	// for (var [key, value] of Object.entries(this.props.wine.currentSightScore)) {
+	// 	console.log(<SightResultsContainer key={key} value={value}/>)
+	// }
+
 		return(
 			<div>
 				<Card className="ui container center aligned">
@@ -16,6 +22,36 @@ class WinePage extends React.Component {
 						</Card.Header>
 					</Card.Content>
 				</Card>
+				<Table striped>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell>Sight Results</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+
+					</Table.Body>
+				</Table>
+				<Table striped>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell>Nose Results</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+					
+					</Table.Body>
+				</Table>
+				<Table striped>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell>Palate Results</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+					
+					</Table.Body>
+				</Table>
 			</div>
 		)
 	}
