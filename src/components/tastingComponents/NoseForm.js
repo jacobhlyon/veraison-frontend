@@ -190,11 +190,13 @@ class NoseForm extends React.Component {
 						<label>Wood Type:</label>
 							<Form.Field control={Radio} label="American" name="wood_type" value="American" onChange={this.handleInputChange} checked={this.state.wood_type === 'American'}/>
 							<Form.Field control={Radio} label="French" name="wood_type" value="French"  onChange={this.handleInputChange} checked={this.state.wood_type=== 'French'}/>
+							<Form.Field control={Radio} label="None" name="wood_type" value="None"  onChange={this.handleInputChange} checked={this.state.wood_type=== 'None'}/>
 					</Form.Group>
 					<Form.Group inline>
 						<label>Wood Age:</label>
 							<Form.Field control={Radio} label="Old" name="wood_age" value="Old" onChange={this.handleInputChange} checked={this.state.wood_age === 'Old'}/>
 							<Form.Field control={Radio} label="New" name="wood_age" value="New"  onChange={this.handleInputChange} checked={this.state.wood_age === 'New'}/>
+							<Form.Field control={Radio} label="None" name="wood_age" value="None"  onChange={this.handleInputChange} checked={this.state.wood_age=== 'None'}/>
 					</Form.Group>
 					<Form.TextArea label="Additional Notes" placeholder="Enter any specific notes here..." name="additional_notes" value={this.state.additional_notes} onChange={this.handleInputChange} />
 					<Form.Field control={Button}>Submit</Form.Field>
