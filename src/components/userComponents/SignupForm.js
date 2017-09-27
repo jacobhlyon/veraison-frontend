@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
 			 	 password: "",
 				password_confirmation: ""
 	        })
-	      ).then(data => this.props.history.replace("/user"))
+	      ).then(data => this.props.history.replace("/profile"))
 	}
 
 

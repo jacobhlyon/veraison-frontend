@@ -10,7 +10,7 @@ import { Route } from 'react-router-dom';
 import SignupForm from './components/userComponents/SignupForm'
 import LoginForm from './components/authComponents/LoginForm'
 import LandingPage from './components/LandingPage'
-import UserPage from './components/userComponents/UserPage'
+import UserProfile from './components/userComponents/UserPage'
 import SightForm from './components/tastingComponents/SightForm'
 import NoseForm from './components/tastingComponents/NoseForm'
 import PalateForm from './components/tastingComponents/PalateForm'
@@ -44,7 +44,7 @@ class App extends Component {
             <Route exact path="/" component={LandingPage}/>
             <Route path="/login" render={({history}) => <LoginForm history={history}/>} />
             <Route path="/signup" component={SignupForm} />
-            <Route path="/user" component={UserPage} />
+            <Route path="/profile" component={UserProfile} />
             <Route path="/palateform" component={PalateForm} />
             <Route path="/winesearchresults" component={WineSearchResults} />
             <Route path="/form/new" component={NewTastingForm} />

@@ -25,7 +25,7 @@ class NavBar extends React.Component {
 
 		return(
 			<Menu inverted>
-				<Menu.Item name='home' href='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
+				<Menu.Item name='home' href='/profile' onClick={this.handleItemClick} />
 				<Menu.Item name='wineSearch' href='/winesearch' onClick={this.handleItemClick} />
 				<Menu.Menu position='right'>
 					<Menu.Item>

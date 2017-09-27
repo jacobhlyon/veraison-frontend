@@ -12,10 +12,6 @@ class LoginForm extends React.Component {
 		password: ""
 	}
 
-	componentWillUnmount(){
-		console.log("I'm going away! LoginForm")
-	}
-
 	handleInputChange = (event) => {
 		const value = event.target.value
 		const target = event.target.dataset.name
@@ -38,7 +34,7 @@ class LoginForm extends React.Component {
 	          		email: "",
 	          		password: ""
 	        	})	
-	      	this.props.history.push('/user')
+	      	this.props.history.push('/profile')
 	      	})
 	  }
 

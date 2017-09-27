@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 class NewTastingForm extends React.Component {
 
 	createTastingForm = (event) => {
-		// console.log("I was clicked!")
 		const wineScoreParams = {
 			user_id: this.props.auth.id,
 			wine_id: this.props.wine.id,

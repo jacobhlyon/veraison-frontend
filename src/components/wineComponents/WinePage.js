@@ -1,16 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Card, Image, Table } from 'semantic-ui-react'
-import SightResultsContainer from './SightResultsContainer'
 
 class WinePage extends React.Component {
 
 
 	render() {
 
-	// for (var [key, value] of Object.entries(this.props.wine.currentSightScore)) {
-	// 	console.log(<SightResultsContainer key={key} value={value}/>)
-	// }
+		const sightValues = Object.values(this.props.wine.currentSightScore)
+		const sightResults = sightValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
+		
+		const noseValues = Object.values(this.props.wine.currentNoseScore)
+		const noseResults = noseValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
+
+		const palateValues = Object.values(this.props.wine.currentPalateScore)
+		const palateResults = palateValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
 
 		return(
 			<div>
@@ -29,7 +33,7 @@ class WinePage extends React.Component {
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
-
+						{sightResults}
 					</Table.Body>
 				</Table>
 				<Table striped>
@@ -39,7 +43,7 @@ class WinePage extends React.Component {
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
-					
+						{noseResults}
 					</Table.Body>
 				</Table>
 				<Table striped>
@@ -49,7 +53,7 @@ class WinePage extends React.Component {
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
-					
+						{palateResults}
 					</Table.Body>
 				</Table>
 			</div>
