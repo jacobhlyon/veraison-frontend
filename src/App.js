@@ -22,13 +22,14 @@ import { confirmCurrentUser } from './actions/authActions'
 import NewTastingForm from './components/tastingComponents/NewTastingForm'
 import WinePage from './components/wineComponents/WinePage'
 import { fetchAllWines } from './actions/wineActions'
+import { fetchUserWines } from './actions/userActions'
 
 class App extends Component {
 
   componentDidMount() {
     const currentUser = localStorage.getItem('token')
     this.props.confirmCurrentUser(currentUser)
-      .then(this.props.fetchAllWines())
+      .then(this.props.fetchAllWines(currentUser))
   }
 
 

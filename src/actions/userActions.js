@@ -27,7 +27,7 @@ export function createUser(data) {
 	}
 }
 
-export function fetchUserWineScores(data) {
+export function fetchUserWines(data) {
 	return function(dispatch) {
 		fetch('http://localhost:3000/api/v1/wine',{
 		      headers:{
@@ -37,7 +37,7 @@ export function fetchUserWineScores(data) {
 		    })
 	    .then(res => res.json())
 	    .then(json => {
-	    	dispatch({type: "FETCHED_USER_WINE_SCORES", payload: json})
+	    	dispatch({type: "FETCHED_USER_WINES", payload: json})
     	})
 	}
 }
