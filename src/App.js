@@ -21,12 +21,14 @@ import { withRouter } from 'react-router'
 import { confirmCurrentUser } from './actions/authActions'
 import NewTastingForm from './components/tastingComponents/NewTastingForm'
 import WinePage from './components/wineComponents/WinePage'
+import { fetchAllWines } from './actions/wineActions'
 
 class App extends Component {
 
   componentDidMount() {
     const currentUser = localStorage.getItem('token')
     this.props.confirmCurrentUser(currentUser)
+      .then(this.props.fetchAllWines())
   }
 
 
@@ -63,7 +65,7 @@ class App extends Component {
   }
 
   function mapDispatchToProps(dispatch) {
-    return bindActionCreators({fetchUsers, confirmCurrentUser}, dispatch)
+    return bindActionCreators({fetchUsers, confirmCurrentUser, fetchAllWines}, dispatch)
   }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(authorize(App)));

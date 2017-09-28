@@ -26,3 +26,18 @@ export function createUser(data) {
 	      })
 	}
 }
+
+export function fetchUserWineScores(data) {
+	return function(dispatch) {
+		fetch('http://localhost:3000/api/v1/wine',{
+		      headers:{
+		        "Authorization":`Bearer ${data}`,
+		        "Accept":"application/json"
+		      }
+		    })
+	    .then(res => res.json())
+	    .then(json => {
+	    	dispatch({type: "FETCHED_USER_WINE_SCORES", payload: json})
+    	})
+	}
+}

@@ -43,7 +43,7 @@ class WinePalateRadarChart extends React.Component {
         theme={VictoryTheme.material}
         domain={{ y: [ 0, 1 ] }}
       >
-        <VictoryGroup colorScale={["gold", "orange", "tomato"]}
+        <VictoryGroup colorScale={["blue", "orange", "tomato"]}
           style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
         >
           {this.state.data.map((data, i) => {
