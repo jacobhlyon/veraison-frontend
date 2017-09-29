@@ -23,8 +23,7 @@ class UserProfile extends React.Component {
 	}
 
 	render(){
-					console.log(this.props)
-			if (this.props.user.currentUserWines === undefined || this.props.auth === undefined) {
+			if (this.props.user.currentUserWines === undefined || this.props.auth.currentUser === "") {
 				return (
 				    <Dimmer active inverted>
 				      <Loader size="large" />
