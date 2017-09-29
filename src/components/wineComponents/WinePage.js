@@ -11,16 +11,6 @@ class WinePage extends React.Component {
 	render() {
 
 		console.log(this.props)
-
-
-		// const sightValues = Object.values(this.props.wine.currentSightScore)
-		// const sightResults = sightValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
-		
-		// const noseValues = Object.values(this.props.wine.currentNoseScore)
-		// const noseResults = noseValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
-
-		// const palateValues = Object.values(this.props.wine.currentPalateScore)
-		// const palateResults = palateValues.map((value, index) => {return <Table.Row key={index}><Table.Cell>{value}</Table.Cell></Table.Row>})
 		if (this.props.wine.currentWine === undefined) {
 				return (
 				    <Dimmer active inverted>

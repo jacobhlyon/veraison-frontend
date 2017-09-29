@@ -35,11 +35,13 @@ class App extends Component {
 
   render() {
     console.log(this.props)
+    const currentUser = localStorage.getItem('token')
+    console.log(currentUser)
 
     return (
       <div className="App">
-        <NavBar />
         <div>
+            <Route path="/" component={NavBar} />
             <Route path="/winesearch" render={({history}) => <WineSearchForm history={history}/>} />
             <Route path="/sightform" component={SightForm} />
             <Route path="/noseform" component={NoseForm} />

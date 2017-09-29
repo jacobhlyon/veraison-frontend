@@ -3,59 +3,7 @@ import { Dropdown, Button, Form, Radio, TextArea } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createPalateScore } from '../../actions/wineActions' 
-
-const white_fruit = [
-		{ key: 'Citrus', text: 'Citrus', value: 'Citrus' },
-		{ key: 'Apple/Pear', text: 'Apple/Pear', value: 'Apple/Pear' },
-		{ key: 'Stone Fruit', text: 'Stone Fruit', value: 'Stone Fruit' },
-		{ key: 'Tropical Fruit', text: 'Tropical Fruit', value: 'Tropical Fruit' },
-		{ key: 'Melon', text: 'Melon', value: 'Melon' }
-	]
-
-const red_fruit = [
-		{ key: 'Red', text: 'Red', value: 'Red' },
-		{ key: 'Black', text: 'Black', value: 'Black' },
-		{ key: 'Blue', text: 'Blue', value: 'Blue' }
-	]
-
-const fruit_character = [
-		{ key: 'Ripe', text: 'Ripe', value: 'Ripe' },
-		{ key: 'Fresh', text: 'Fresh', value: 'Fresh' },
-		{ key: 'Tart', text: 'Tart', value: 'Tart' },
-		{ key: 'Baked', text: 'Baked', value: 'Baked' },
-		{ key: 'Stewed', text: 'Stewed', value: 'Stewed' },
-		{ key: 'Dried', text: 'Dried', value: 'Dried' },
-		{ key: 'Desiccated', text: 'Desiccated', value: 'Desiccated' },
-		{ key: 'Bruised', text: 'Bruised', value: 'Bruised' },
-		{ key: 'Jammy', text: 'Jammy', value: 'Jammy' }
-	]
-
-const non_fruit = [
-		{ key: 'Floral', text: 'Floral', value: 'Floral' },
-		{ key: 'Vegetal', text: 'Vegetal', value: 'Vegetal' },
-		{ key: 'Herbal', text: 'Herbal', value: 'Herbal' },
-		{ key: 'Spice', text: 'Spice', value: 'Spice' },
-		{ key: 'Animal', text: 'Animal', value: 'Animal' },
-		{ key: 'Barn', text: 'Barn', value: 'Barn' },
-		{ key: 'Petrol', text: 'Petrol', value: 'Petrol' },
-		{ key: 'Fermentation', text: 'Fermentation', value: 'Fermentation' }
-	]
-
-const organic_earth = [
-		{ key: 'Forest Floor', text: 'Forest Floor', value: 'Forest Floor' },
-		{ key: 'Compost', text: 'Compost', value: 'Compost' },
-		{ key: 'Mushrooms', text: 'Mushrooms', value: 'Mushrooms' },
-		{ key: 'Potting Soil', text: 'Potting Soil', value: 'Potting Soil' }
-	]
-
-const inorganic_earth = [
-		{ key: 'Mineral', text: 'Mineral', value: 'Mineral' },
-		{ key: 'Wet Stone', text: 'Wet Stone', value: 'Wet Stone' },
-		{ key: 'Limestone', text: 'Limestone', value: 'Limestone' },
-		{ key: 'Chalk', text: 'Chalk', value: 'Chalk' },
-		{ key: 'Slate', text: 'Slate', value: 'Slate' },
-		{ key: 'Flint', text: 'Flint', value: 'Flint' }
-	]
+import { faults, white_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
 
 
 class PalateForm extends React.Component {
@@ -105,8 +53,6 @@ class PalateForm extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 
-		console.log("fruits", this.state.fruit)
-
 		const palateScoreParams = {
 		wine_score_id: this.props.wine.currentWineScore.id,
 		sweetness: this.state.sweetness,
@@ -139,7 +85,7 @@ class PalateForm extends React.Component {
 
 		return(
 				<Form onSubmit={this.handleSubmit}>
-					<h2>Palate Form</h2>
+					<h2>Palate Form for {this.props.wine.currentWine.name}</h2>
 					<Form.Group inline>
 						<label>Sweetness:</label>
 							<Form.Field control={Radio} label="Dry" name="sweetness" value="Dry" onChange={this.handleInputChange} checked={this.state.sweetness === 'Dry'}/>

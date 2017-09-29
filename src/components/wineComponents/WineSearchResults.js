@@ -10,8 +10,8 @@ class WineSearchResults extends React.Component {
 	// console.log(this.props.wine)
 
 	handleClick = (wine) => {
-	// 		const wineImage = if(wine.props.image == '') {
-	// 	"https://images.unsplash.com/photo-1495929427389-a6451f2e01fa?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop="
+	// 	if(wine.props.image === '') {
+	// 	const "https://images.unsplash.com/photo-1495929427389-a6451f2e01fa?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop="
 	// } else {
 	// 	wine.image
 	// }

@@ -14,23 +14,31 @@ class NavBar extends React.Component {
 	}
 
 	render() {
+		if (localStorage.getItem('token') !== null) {
 
-
-		return(
-			<Menu inverted>
-				<Menu.Item name='home' href='/profile' />
-				<Menu.Item name='wineSearch' href='/winesearch' />
-				<Menu.Menu position='right'>
-					<Menu.Item>
-						<Button primary href='/login'>Log In</Button>
-					</Menu.Item>
-					<Menu.Item>
-						<Button primary href='/' onClick={this.handleLogOut}>Log Out</Button>
-					</Menu.Item>
-				</Menu.Menu>
-
-			</Menu>		
-		)
+			return(
+				<Menu inverted>
+					<Menu.Item name='home' href='/profile' />
+					<Menu.Item name='wineSearch' href='/winesearch' />
+					<Menu.Menu position='right'>
+						<Menu.Item>
+							<Button primary href='/' onClick={this.handleLogOut}>Log Out</Button>
+						</Menu.Item>
+					</Menu.Menu>
+				</Menu>		
+			)	
+		} else {
+			return(
+				<Menu inverted>
+					<Menu.Item name='Welcome' />
+					<Menu.Menu position='right'>
+						<Menu.Item>
+							<Button primary href='/login'>Log In</Button>
+						</Menu.Item>
+					</Menu.Menu>
+				</Menu>	
+			)
+		}
 	}
 }
 

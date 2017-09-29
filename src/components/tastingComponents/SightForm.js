@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Radio} from 'semantic-ui-react'
+import { Button, Form, Radio } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createSightScore } from '../../actions/wineActions'
@@ -55,10 +55,12 @@ class SightForm extends React.Component {
 
 
 	render() {
+
+		console.log(this.props)
 		
-		return(
+		return(	
 				<Form onSubmit={this.handleSubmit}>
-					<h2>Sight Form</h2>
+					<h2>Sight Form for {this.props.wine.currentWine.name}</h2>
 					<Form.Group inline>
 						<label>Clarity/Visible Sediment:</label>
 							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
