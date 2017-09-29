@@ -110,4 +110,22 @@ export function fetchAllWines() {
 	}
 }
 
+export function fetchAllScoresForWine(data) {
+	return function(dispatch) {
+	    const requestInfo = {
+	      method: 'POST',
+	      body: JSON.stringify({data}),
+	      headers: {
+	        "Content-Type":"application/json",
+	        "Accept":"application/json"
+	      }
+	    }
+		return fetch('http://localhost:3000/api/v1/scores', requestInfo)
+			.then(res => res.json())
+			.then(json => {
+				dispatch({type: "FETCHED_ALL_SCORES_FOR_WINE", payload: json})
+			})
+	}
+}
+
 

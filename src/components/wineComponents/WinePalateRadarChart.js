@@ -1,5 +1,6 @@
 import React from 'react'
 import { VictoryGroup, VictoryChart, VictoryTheme, VictoryArea, VictoryLabel, VictoryPolarAxis} from 'victory'
+import { connect } from 'react-redux'
 
 const characterData = [
   { strength: 1, intelligence: 250, luck: 1, stealth: 40, charisma: 50 },
@@ -84,6 +85,12 @@ class WinePalateRadarChart extends React.Component {
   }
 }
 
-export default WinePalateRadarChart
+function mapStateToProps(state){
+  return {
+    wine: state.wine
+  }
+}
+
+export default connect(mapStateToProps)(WinePalateRadarChart)
 
 

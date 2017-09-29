@@ -42,7 +42,7 @@ class WineSearchResults extends React.Component {
 	render() {
 		const allWines = this.props.wine.map(wine => <WineSearchResultsContainer handleClick={this.handleClick} props={wine} key={wine.code}/>)
 		return(
-			<Card.Group> 
+			<Card.Group centered> 
 				{allWines}
 			</Card.Group>
 		)

@@ -4,23 +4,34 @@ import { Button, Dimmer, Loader, Image, Segment, Card } from 'semantic-ui-react'
 import { fetchUserWines } from '../../actions/userActions'
 import { bindActionCreators } from 'redux'
 import WineSearchResultsContainer from '../wineComponents/WineSearchResultsContainer'
+import { fetchAllScoresForWine } from '../../actions/wineActions'
 
 class UserProfile extends React.Component {
 
-componentDidMount() {
-    const currentUser = localStorage.getItem('token')
-    this.props.fetchUserWines(currentUser)
-  }
+	componentDidMount() {
+	    const currentUser = localStorage.getItem('token')
+	    this.props.fetchUserWines(currentUser)
+	  }
+
+	handleClick = (wine) => {
+		const data = {
+			user_id: this.props.auth.currentUser.id,
+			wine_id: wine.id
+		}
+		this.props.fetchAllScoresForWine(data)
+			.then(data => this.props.history.push('/winepage'))
+	}
 
 	render(){
-			if (this.props.user.currentUserWines === undefined) {
+					console.log(this.props)
+			if (this.props.user.currentUserWines === undefined || this.props.auth === undefined) {
 				return (
 				    <Dimmer active inverted>
 				      <Loader size="large" />
 				    </Dimmer>
 				)
 			} else {
-				const userWines = this.props.user.currentUserWines.map((wine, index) => <WineSearchResultsContainer props={wine} key={index}/>)
+				const userWines = this.props.user.currentUserWines.map((wine, index) => <WineSearchResultsContainer handleClick={this.handleClick} props={wine} key={index}/>)
 
 				return( 
 				<div>
@@ -46,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({fetchUserWines}, dispatch)
+	return bindActionCreators({fetchUserWines, fetchAllScoresForWine}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
