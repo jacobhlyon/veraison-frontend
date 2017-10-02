@@ -63,9 +63,7 @@ class SightForm extends React.Component {
 					<h2>Sight Form for {this.props.wine.currentWine.name}</h2>
 					<Form.Group inline>
 						<label>Clarity/Visible Sediment:</label>
-							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
-							<Form.Field control={Radio} label="Hazy" name="clarity" value="hazy" onChange={this.handleInputChange} checked={this.state.clarity === 'hazy'}/>
-							<Form.Field control={Radio} label="Turbid" name="clarity" value="turbid" onChange={this.handleInputChange} checked={this.state.clarity === 'turbid'}/>	
+
 					</Form.Group>
 					<Form.Group inline>
 						<label>Concentration:</label>

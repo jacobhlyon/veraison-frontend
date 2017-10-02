@@ -36,7 +36,6 @@ class App extends Component {
   render() {
     console.log(this.props)
     const currentUser = localStorage.getItem('token')
-    console.log(currentUser)
 
     return (
       <div className="App">

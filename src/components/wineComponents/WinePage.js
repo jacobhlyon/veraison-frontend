@@ -18,8 +18,9 @@ class WinePage extends React.Component {
 				    </Dimmer>
 				)
 			} else {
+				
 				return(
-					<Grid >
+					<Grid celled>
 						<Grid.Row>
 							<Grid.Column width={4}>
 								<Image centered size='small' src={this.props.wine.currentWine.image} />

@@ -40,7 +40,9 @@ class PalateForm extends React.Component {
 			const target = eventProperties.name
 			this.setState({
 			[target]: newValue
-		})
+			})
+		// } else if (eventProperties.name ===) {
+
 		} else {
 			const value = eventProperties.value
 			const target = eventProperties.name
@@ -52,6 +54,7 @@ class PalateForm extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
+		console.log(this.state)
 
 		const palateScoreParams = {
 		wine_score_id: this.props.wine.currentWineScore.id,
@@ -137,27 +140,27 @@ class PalateForm extends React.Component {
 					</Form.Group>
 					<Form.Group inline>
 						<label>Tannin (Red Wines Only):</label>
-							<Form.Field control={Radio} label="Low" name="tannin" value="Low" onChange={this.handleInputChange} checked={this.state.tannin === 'Low'}/>
-							<Form.Field control={Radio} label="Medium-" name="tannin" value="Medium-"  onChange={this.handleInputChange} checked={this.state.tannin === 'Medium-'}/>
-							<Form.Field control={Radio} label="Medium" name="tannin" value="Medium" onChange={this.handleInputChange} checked={this.state.tannin === 'Medium'}/>
-							<Form.Field control={Radio} label="Medium+" name="tannin" value="Medium+" onChange={this.handleInputChange} checked={this.state.tannin === 'Medium+'}/>
-							<Form.Field control={Radio} label="High" name="tannin" value="High" onChange={this.handleInputChange} checked={this.state.tannin === 'High'}/>	
+							<Form.Field control={Radio} label="Low" name="tannin" value={1} onChange={this.handleInputChange} checked={this.state.tannin === 1}/>
+							<Form.Field control={Radio} label="Medium-" name="tannin" value={2}  onChange={this.handleInputChange} checked={this.state.tannin === 2}/>
+							<Form.Field control={Radio} label="Medium" name="tannin" value={3} onChange={this.handleInputChange} checked={this.state.tannin === 3}/>
+							<Form.Field control={Radio} label="Medium+" name="tannin" value={4} onChange={this.handleInputChange} checked={this.state.tannin === 4}/>
+							<Form.Field control={Radio} label="High" name="tannin" value={5} onChange={this.handleInputChange} checked={this.state.tannin === 5}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Acid:</label>
-							<Form.Field control={Radio} label="Low" name="acid" value="Low" onChange={this.handleInputChange} checked={this.state.acid === 'Low'}/>
-							<Form.Field control={Radio} label="Medium-" name="acid" value="Medium-"  onChange={this.handleInputChange} checked={this.state.acid === 'Medium-'}/>
-							<Form.Field control={Radio} label="Medium" name="acid" value="Medium" onChange={this.handleInputChange} checked={this.state.acid === 'Medium'}/>
-							<Form.Field control={Radio} label="Medium+" name="acid" value="Medium+" onChange={this.handleInputChange} checked={this.state.acid === 'Medium+'}/>
-							<Form.Field control={Radio} label="High" name="acid" value="High" onChange={this.handleInputChange} checked={this.state.acid === 'High'}/>	
+							<Form.Field control={Radio} label="Low" name="acid" value={1} onChange={this.handleInputChange} checked={this.state.acid === 1}/>
+							<Form.Field control={Radio} label="Medium-" name="acid" value={2}  onChange={this.handleInputChange} checked={this.state.acid === 2}/>
+							<Form.Field control={Radio} label="Medium" name="acid" value={3} onChange={this.handleInputChange} checked={this.state.acid === 3}/>
+							<Form.Field control={Radio} label="Medium+" name="acid" value={4} onChange={this.handleInputChange} checked={this.state.acid === 4}/>
+							<Form.Field control={Radio} label="High" name="acid" value={5} onChange={this.handleInputChange} checked={this.state.acid === 5}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Alcohol:</label>
-							<Form.Field control={Radio} label="Low" name="alcohol" value="Low" onChange={this.handleInputChange} checked={this.state.alcohol === 'Low'}/>
-							<Form.Field control={Radio} label="Medium-" name="alcohol" value="Medium-"  onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium-'}/>
-							<Form.Field control={Radio} label="Medium" name="alcohol" value="Medium" onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium'}/>
-							<Form.Field control={Radio} label="Medium+" name="alcohol" value="Medium+" onChange={this.handleInputChange} checked={this.state.alcohol === 'Medium+'}/>
-							<Form.Field control={Radio} label="High" name="alcohol" value="High" onChange={this.handleInputChange} checked={this.state.alcohol === 'High'}/>	
+							<Form.Field control={Radio} label="Low" name="alcohol" value={1} onChange={this.handleInputChange} checked={this.state.alcohol === 1}/>
+							<Form.Field control={Radio} label="Medium-" name="alcohol" value={2}  onChange={this.handleInputChange} checked={this.state.alcohol === 2}/>
+							<Form.Field control={Radio} label="Medium" name="alcohol" value={3} onChange={this.handleInputChange} checked={this.state.alcohol === 3}/>
+							<Form.Field control={Radio} label="Medium+" name="alcohol" value={4} onChange={this.handleInputChange} checked={this.state.alcohol === 4}/>
+							<Form.Field control={Radio} label="High" name="alcohol" value={5} onChange={this.handleInputChange} checked={this.state.alcohol === 5}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Body:</label>
@@ -174,19 +177,19 @@ class PalateForm extends React.Component {
 					<Form.TextArea label="Balance" placeholder="Does anything specific dominate?" name="balance" value={this.state.balance} onChange={this.handleInputChange} />
 					<Form.Group inline>
 						<label>Length:</label>
-							<Form.Field control={Radio} label="Short" name="length" value="Short" onChange={this.handleInputChange} checked={this.state.length === 'Short'}/>
-							<Form.Field control={Radio} label="Medium-" name="length" value="Medium-"  onChange={this.handleInputChange} checked={this.state.length === 'Medium-'}/>
-							<Form.Field control={Radio} label="Medium" name="length" value="Medium" onChange={this.handleInputChange} checked={this.state.length === 'Medium'}/>
-							<Form.Field control={Radio} label="Medium+" name="length" value="Medium+" onChange={this.handleInputChange} checked={this.state.length === 'Medium+'}/>
-							<Form.Field control={Radio} label="Long" name="length" value="Long" onChange={this.handleInputChange} checked={this.state.length === 'Long'}/>	
+							<Form.Field control={Radio} label="Short" name="length" value={1}onChange={this.handleInputChange} checked={this.state.length === 1}/>
+							<Form.Field control={Radio} label="Medium-" name="length" value={2}  onChange={this.handleInputChange} checked={this.state.length === 2}/>
+							<Form.Field control={Radio} label="Medium" name="length" value={3} onChange={this.handleInputChange} checked={this.state.length === 3}/>
+							<Form.Field control={Radio} label="Medium+" name="length" value={4} onChange={this.handleInputChange} checked={this.state.length === 4}/>
+							<Form.Field control={Radio} label="Long" name="length" value={5} onChange={this.handleInputChange} checked={this.state.length === 5}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Complexity:</label>
-							<Form.Field control={Radio} label="Low" name="complexity" value="Low" onChange={this.handleInputChange} checked={this.state.complexity === 'Low'}/>
-							<Form.Field control={Radio} label="Medium-" name="complexity" value="Medium-"  onChange={this.handleInputChange} checked={this.state.complexity === 'Medium-'}/>
-							<Form.Field control={Radio} label="Medium" name="complexity" value="Medium" onChange={this.handleInputChange} checked={this.state.complexity === 'Medium'}/>
-							<Form.Field control={Radio} label="Medium+" name="complexity" value="Medium+" onChange={this.handleInputChange} checked={this.state.complexity === 'Medium+'}/>
-							<Form.Field control={Radio} label="High" name="complexity" value="High" onChange={this.handleInputChange} checked={this.state.complexity === 'High'}/>	
+							<Form.Field control={Radio} label="Low" name="complexity" value={1} onChange={this.handleInputChange} checked={this.state.complexity === 1}/>
+							<Form.Field control={Radio} label="Medium-" name="complexity" value={2}  onChange={this.handleInputChange} checked={this.state.complexity === 2}/>
+							<Form.Field control={Radio} label="Medium" name="complexity" value={3} onChange={this.handleInputChange} checked={this.state.complexity === 3}/>
+							<Form.Field control={Radio} label="Medium+" name="complexity" value={4} onChange={this.handleInputChange} checked={this.state.complexity === 4}/>
+							<Form.Field control={Radio} label="High" name="complexity" value={5} onChange={this.handleInputChange} checked={this.state.complexity === 5}/>	
 					</Form.Group>
 					<Form.TextArea label="Additional Notes" placeholder="Enter any specific notes here..." name="additional_notes" value={this.state.additional_notes} onChange={this.handleInputChange} />
 					<Form.Field control={Button}>Submit</Form.Field>
