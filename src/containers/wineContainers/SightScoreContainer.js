@@ -18,7 +18,6 @@ import { Step, Icon } from 'semantic-ui-react'
 	]
 	const SightScoreContainer = (props) => {
 
-		 console.log(props)
 
 	return (
 		  <div>
@@ -34,7 +33,7 @@ import { Step, Icon } from 'semantic-ui-react'
 		    <h2>Tearing:</h2>
 		    	<h2>{props.score.tearing}</h2>
 		    <h2>Gas Evidence:</h2>
-		    	<h2>{props.score.gas_evidence.toString()}</h2>
+		    	<h2>{props.score.gas_evidence}</h2>
 		  </div>
 
 	)

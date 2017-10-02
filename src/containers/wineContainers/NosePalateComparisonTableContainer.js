@@ -3,7 +3,6 @@ import { Label, Table} from 'semantic-ui-react'
 
 const NosePalateComparisonTable = (props) => {
 
-		console.log(props)
 	return (
 		<Table celled selectable>
 			<Table.Header>

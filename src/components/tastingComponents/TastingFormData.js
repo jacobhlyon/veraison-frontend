@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const faults = [
 		{ key: 'TCA', text: 'TCA', value: 'TCA' },

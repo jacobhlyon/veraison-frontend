@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { Image, Grid, Dimmer, Loader, Input, Menu, Segment } from 'semantic-ui-react'
 import WinePalateRadarChart from './WinePalateRadarChart'
 import NosePalateComparisonTableContainer from '../../containers/wineContainers/NosePalateComparisonTableContainer'
-import SightScoreContainer from '../../containers/wineContainers/SightScoreContainer'
+import AllScoresContainer from '../../containers/wineContainers/AllScoresContainer'
 
 
 class WinePage extends React.Component {
 	state = {
-		activeItem: 'sight'
+		activeItem: 'Sight'
 	}
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -40,7 +40,7 @@ class WinePage extends React.Component {
 								</Grid.Column>
 								<Grid.Column width={4}>
 									<h2>Snooth Rating:{this.props.wine.currentWine.snooth_rank}</h2>
-									<h2>{this.props.auth.currentUser.first_name}'s' Rating: TBD</h2>
+									<h2>{this.props.auth.currentUser.first_name}'s Rating: TBD</h2>
 								</Grid.Column>
 							</Grid.Row>
 							<Grid.Row>
@@ -53,12 +53,12 @@ class WinePage extends React.Component {
 							</Grid.Row>
 						</Grid>
 				        <Menu attached='top' tabular>
-				          <Menu.Item name='sight' active={activeItem === 'sight'} onClick={this.handleItemClick} />
-				          <Menu.Item name='nose' active={activeItem === 'nose'} onClick={this.handleItemClick} />
-				          <Menu.Item name='palate' active={activeItem === 'palate'} onClick={this.handleItemClick} />
+				          <Menu.Item name='Sight' active={activeItem === 'Sight'} onClick={this.handleItemClick} />
+				          <Menu.Item name='Nose' active={activeItem === 'Nose'} onClick={this.handleItemClick} />
+				          <Menu.Item name='Palate' active={activeItem === 'Palate'} onClick={this.handleItemClick} />
 				        </Menu>
 				        <Segment attached='bottom'>
-				          <SightScoreContainer score={this.props.wine.currentSightScore}/>
+				     		<AllScoresContainer currentScore={this.state.activeItem} scoreInfo={this.props.wine}/>
 				        </Segment>
 				      </div>
 				)
@@ -67,7 +67,7 @@ class WinePage extends React.Component {
 		}
 }
 
-				        	// {currentScore}
+
 function mapStateToProps(state){
 	return {
 		wine: state.wine,
