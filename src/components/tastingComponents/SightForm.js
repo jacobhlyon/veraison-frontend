@@ -63,7 +63,9 @@ class SightForm extends React.Component {
 					<h2>Sight Form for {this.props.wine.currentWine.name}</h2>
 					<Form.Group inline>
 						<label>Clarity/Visible Sediment:</label>
-
+							<Form.Field control={Radio} label="Clear" name="clarity" value="clear" onChange={this.handleInputChange} checked={this.state.clarity === 'clear'}/>
+							<Form.Field control={Radio} label="Hazy" name="clarity" value="hazy"  onChange={this.handleInputChange} checked={this.state.clarity === 'hazy'}/>
+							<Form.Field control={Radio} label="Turbid" name="turbid" value="deep" onChange={this.handleInputChange} checked={this.state.clarity === 'turbid'}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Concentration:</label>
@@ -80,9 +82,9 @@ class SightForm extends React.Component {
 					</Form.Group>
 					<Form.Group inline>
 						<label>Secondary Color:</label>
-							<Form.Field control={Radio} label="Pale" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
-							<Form.Field control={Radio} label="Medium" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
-							<Form.Field control={Radio} label="Deep" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
+							<Form.Field control={Radio} label="Silver" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
+							<Form.Field control={Radio} label="Green" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
+							<Form.Field control={Radio} label="Copper" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
 					</Form.Group>
 					<Form.Group inline>
 						<label>Rim Variation:</label>

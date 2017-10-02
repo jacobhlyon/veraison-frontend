@@ -5,7 +5,7 @@ const NosePalateComparisonTable = (props) => {
 
 		console.log(props)
 	return (
-		<Table celled>
+		<Table celled selectable>
 			<Table.Header>
 				<Table.Row>
 					<Table.HeaderCell>Category</Table.HeaderCell>
