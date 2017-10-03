@@ -1,40 +1,54 @@
 import React from 'react'
-import { Step, Icon } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 
-
-	const claritySteps = [
-		{ disabled: true, title: 'Clear' },
-		{ active: true, title: 'Hazy' },
-	  	{ disabled: true, title: 'Turbid' }
-	]
-				// to use when you can make it work
-		    	// 
-
-	const concentrationSteps = [
-		{ disabled: true, title: 'Pale' },
-		{ disabled: true, title: 'Medium' },
-	  	{ active: true, title: 'Deep' }
-	]
 	const SightScoreContainer = (props) => {
 
 
 	return (
-		  <div>
-		  	<h2>Clarity: </h2><Step.Group items={claritySteps} />
-		    <h2>Concentration: {props.score.concentration}</h2>
-		    <h2>Color: {props.score.color}</h2>
-		    <h2>Secondary Color:</h2>
-		    	<h2>{props.score.secondary_color}</h2>
-		    <h2>Rim Variation:</h2>
-		    	<h2>{props.score.rim_variation}</h2>
-		    <h2>Staining:</h2>
-		    	<h2>{props.score.staining}</h2>
-		    <h2>Tearing:</h2>
-		    	<h2>{props.score.tearing}</h2>
-		    <h2>Gas Evidence:</h2>
-		    	<h2>{props.score.gas_evidence}</h2>
-		  </div>
+		  <Table celled selectable>
+		  	<Table.Header>
+		      <Table.Row>
+		        <Table.HeaderCell>Sight Category</Table.HeaderCell>
+		        <Table.HeaderCell>Score</Table.HeaderCell>
+		      </Table.Row>
+		    </Table.Header>
+
+		    <Table.Body>
+		      <Table.Row>
+		        <Table.Cell>Clarity</Table.Cell>
+		        <Table.Cell>{props.score.clarity}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Concentration</Table.Cell>
+		        <Table.Cell>{props.score.concentration}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Color</Table.Cell>
+		        <Table.Cell>{props.score.color}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Secondary Color</Table.Cell>
+		        <Table.Cell>{props.score.secondary_color}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Rim Variation</Table.Cell>
+		        <Table.Cell>{props.score.rim_variation}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Staining</Table.Cell>
+		        <Table.Cell>{props.score.staining}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Tearing</Table.Cell>
+		        <Table.Cell>{props.score.tearing}</Table.Cell>
+		      </Table.Row>
+		      <Table.Row>
+		        <Table.Cell>Gas Evidence</Table.Cell>
+		        <Table.Cell>{props.score.gas_evidence}</Table.Cell>
+		      </Table.Row>
+		    </Table.Body>
+		  </Table>
 
 	)
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Image, Grid, Dimmer, Loader, Input, Menu, Segment } from 'semantic-ui-react'
+import { Image, Grid, Dimmer, Loader, Menu, Segment } from 'semantic-ui-react'
 import WinePalateRadarChart from './WinePalateRadarChart'
 import NosePalateComparisonTableContainer from '../../containers/wineContainers/NosePalateComparisonTableContainer'
 import AllScoresContainer from '../../containers/wineContainers/AllScoresContainer'
