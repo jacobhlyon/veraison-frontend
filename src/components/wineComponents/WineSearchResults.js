@@ -7,7 +7,6 @@ import { persistWine } from '../../actions/wineActions'
 
 class WineSearchResults extends React.Component {
 
-	// console.log(this.props.wine)
 
 	handleClick = (wine) => {
 	// 	if(wine.props.image === '') {
