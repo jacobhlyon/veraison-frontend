@@ -74,7 +74,7 @@ class NoseForm extends React.Component {
 	render() {
 
 		return(
-				<Form onSubmit={this.handleSubmit}>
+				<Form className="segment centered" onSubmit={this.handleSubmit}>
 					<h2>Nose Form for {this.props.wine.currentWine.name}</h2>
 					<Form.Group inline>
 						<label>Clean (No Faults):</label>

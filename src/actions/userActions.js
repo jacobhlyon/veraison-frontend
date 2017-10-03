@@ -23,7 +23,7 @@ export function createUser(data) {
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "CREATED_USER", payload: json})
-	      }).catch(alert("That email is already taken. Please enter a unique email.").reload())
+	      })
 	}
 }
 
