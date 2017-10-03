@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Radio, Grid, Segment, Header, Image } from 'semantic-ui-react'
+import { Button, Form, Radio, Grid, Header, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createSightScore } from '../../actions/wineActions'
@@ -60,7 +60,8 @@ class SightForm extends React.Component {
 		
 		return(	
 			<div>
-				<Header as='h2'>
+				<Header as='h1'>
+					<Image size="tiny" src={require('../../images/003-eye.png')} />
 					<Header.Content>
 						Sight Form for {this.props.wine.currentWine.name}
 					</Header.Content>
@@ -153,6 +154,7 @@ class SightForm extends React.Component {
 							<Grid.Column width={4}></Grid.Column>
 						</Grid.Row>
 					</Grid >
+					<br />
 					<Form.Field control={Button}>Submit</Form.Field>
 				</Form>
 		</div>
