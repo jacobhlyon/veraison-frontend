@@ -93,7 +93,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/026-cup.png')} />
+									<Image size="tiny" src={require('../../images/015-apple-1.png')} />
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
@@ -104,18 +104,27 @@ class SightForm extends React.Component {
 											<Form.Field control={Radio} label="Gold" name="color" value="gold" onChange={this.handleInputChange} checked={this.state.color === 'gold'}/>	
 									</Form.Group>
 									<Form.Group inline>
+										<label>White Secondary Color:</label>
+											<Form.Field control={Radio} label="Silver" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
+											<Form.Field control={Radio} label="Green" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
+											<Form.Field control={Radio} label="Copper" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
+									</Form.Group>
+							</Grid.Column>
+							<Grid.Column width={4}></Grid.Column>
+						</Grid.Row>
+						<Grid.Row>
+							<Grid.Column width={4}></Grid.Column>
+							<Grid.Column width={2}>
+									<Image size="tiny" src={require('../../images/025-strawberry.png')} />
+							</Grid.Column>
+							<Grid.Column width={6}>
+									<Form.Group inline>
 										<label>Red Primary Color:</label>
 											<Form.Field control={Radio} label="Purple" name="color" value="Purple" onChange={this.handleInputChange} checked={this.state.color === 'Purple'}/>
 											<Form.Field control={Radio} label="Ruby" name="color" value="Ruby"  onChange={this.handleInputChange} checked={this.state.color === 'Ruby'}/>
 											<Form.Field control={Radio} label="Red" name="color" value="Red" onChange={this.handleInputChange} checked={this.state.color === 'Red'}/>
 											<Form.Field control={Radio} label="Garnet" name="color" value="Garnet" onChange={this.handleInputChange} checked={this.state.color === 'Garnet'}/>	
 										</Form.Group>
-									<Form.Group inline>
-										<label>White Secondary Color:</label>
-											<Form.Field control={Radio} label="Silver" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
-											<Form.Field control={Radio} label="Green" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
-											<Form.Field control={Radio} label="Copper" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
-									</Form.Group>
 									<Form.Group inline>
 										<label>Red Secondary Color:</label>
 											<Form.Field control={Radio} label="Orange" name="secondary_color" value="Orange" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Orange'}/>
@@ -124,20 +133,20 @@ class SightForm extends React.Component {
 											<Form.Field control={Radio} label="Garnet" name="secondary_color" value="Garnet"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'Garnet'}/>
 											<Form.Field control={Radio} label="Brown" name="secondary_color" value="Brown" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Brown'}/>		
 									</Form.Group>
-									<Form.Group inline>
-										<label>Rim Variation:</label>
-											<Form.Field control={Radio} label="Yes" name="rim_variation" value="true" onChange={this.handleInputChange} checked={this.state.rim_variation === true}/>
-											<Form.Field control={Radio} label="No" name="rim_variation" value="false"  onChange={this.handleInputChange} checked={this.state.rim_variation === false}/>	
-									</Form.Group>
 							</Grid.Column>
 							<Grid.Column width={4}></Grid.Column>
 						</Grid.Row>
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/012-wine-glasses.png')} />
+									<Image size="tiny" src={require('../../images/026-cup.png')} />
 							</Grid.Column>
 							<Grid.Column width={6}>
+									<Form.Group inline>
+										<label>Rim Variation:</label>
+											<Form.Field control={Radio} label="Yes" name="rim_variation" value="true" onChange={this.handleInputChange} checked={this.state.rim_variation === true}/>
+											<Form.Field control={Radio} label="No" name="rim_variation" value="false"  onChange={this.handleInputChange} checked={this.state.rim_variation === false}/>	
+									</Form.Group>
 									<Form.Group inline>
 										<label>Staining:</label>
 											<Form.Field control={Radio} label="None" name="staining" value="none" onChange={this.handleInputChange} checked={this.state.staining === 'none'}/>
