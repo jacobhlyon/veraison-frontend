@@ -9,6 +9,24 @@ export function searchNewWine(winery, varietal, vintage) {
 	}
 }
 
+// export function updateWine(data) {
+// 	return function(dispatch) {
+// 		const requestInfo = {
+// 			method: 'POST',
+// 		    body: JSON.stringify({data}),
+// 		    headers: {
+// 		      	"Content-Type":"application/json",
+// 		        "Accept":"application/json"
+// 		    }
+// 		}
+// 		return fetch('http://localhost:3000/api/v1/wines/update', requestInfo)
+// 			.then(res => res.json())
+// 			.then(json => {
+// 				dispatch({type: "UPDATED_WINE", payload: json})
+// 			})
+// 	}
+// }
+
 export function persistWine(data) {
 	return function(dispatch) {
 		console.log(data)

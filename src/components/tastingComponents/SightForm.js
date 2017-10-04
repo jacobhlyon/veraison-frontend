@@ -97,17 +97,32 @@ class SightForm extends React.Component {
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
-										<label>Color:</label>
+										<label>White Primary Color:</label>
 											<Form.Field control={Radio} label="Water White" name="color" value="water white" onChange={this.handleInputChange} checked={this.state.color === 'water white'}/>
 											<Form.Field control={Radio} label="Straw" name="color" value="straw"  onChange={this.handleInputChange} checked={this.state.color === 'straw'}/>
 											<Form.Field control={Radio} label="Yellow" name="color" value="yellow" onChange={this.handleInputChange} checked={this.state.color === 'yellow'}/>
 											<Form.Field control={Radio} label="Gold" name="color" value="gold" onChange={this.handleInputChange} checked={this.state.color === 'gold'}/>	
 									</Form.Group>
 									<Form.Group inline>
-										<label>Secondary Color:</label>
+										<label>Red Primary Color:</label>
+											<Form.Field control={Radio} label="Purple" name="color" value="Purple" onChange={this.handleInputChange} checked={this.state.color === 'Purple'}/>
+											<Form.Field control={Radio} label="Ruby" name="color" value="Ruby"  onChange={this.handleInputChange} checked={this.state.color === 'Ruby'}/>
+											<Form.Field control={Radio} label="Red" name="color" value="Red" onChange={this.handleInputChange} checked={this.state.color === 'Red'}/>
+											<Form.Field control={Radio} label="Garnet" name="color" value="Garnet" onChange={this.handleInputChange} checked={this.state.color === 'Garnet'}/>	
+										</Form.Group>
+									<Form.Group inline>
+										<label>White Secondary Color:</label>
 											<Form.Field control={Radio} label="Silver" name="secondary_color" value="silver" onChange={this.handleInputChange} checked={this.state.secondary_color === 'silver'}/>
 											<Form.Field control={Radio} label="Green" name="secondary_color" value="green"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'green'}/>
 											<Form.Field control={Radio} label="Copper" name="secondary_color" value="copper" onChange={this.handleInputChange} checked={this.state.secondary_color === 'copper'}/>	
+									</Form.Group>
+									<Form.Group inline>
+										<label>Red Secondary Color:</label>
+											<Form.Field control={Radio} label="Orange" name="secondary_color" value="Orange" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Orange'}/>
+											<Form.Field control={Radio} label="Blue" name="secondary_color" value="Blue"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'Blue'}/>
+											<Form.Field control={Radio} label="Ruby" name="secondary_color" value="Ruby" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Ruby'}/>
+											<Form.Field control={Radio} label="Garnet" name="secondary_color" value="Garnet"  onChange={this.handleInputChange} checked={this.state.secondary_color === 'Garnet'}/>
+											<Form.Field control={Radio} label="Brown" name="secondary_color" value="Brown" onChange={this.handleInputChange} checked={this.state.secondary_color === 'Brown'}/>		
 									</Form.Group>
 									<Form.Group inline>
 										<label>Rim Variation:</label>

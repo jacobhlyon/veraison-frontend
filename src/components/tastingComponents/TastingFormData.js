@@ -8,12 +8,15 @@ export const faults = [
 		{ key: 'Oxidation', text: 'Oxidation', value: 'Oxidation' }
 	]
 
-export const white_fruit = [
+export const all_fruit = [
 		{ key: 'Citrus', text: 'Citrus', value: 'Citrus' },
 		{ key: 'Apple/Pear', text: 'Apple/Pear', value: 'Apple/Pear' },
 		{ key: 'Stone Fruit', text: 'Stone Fruit', value: 'Stone Fruit' },
 		{ key: 'Tropical Fruit', text: 'Tropical Fruit', value: 'Tropical Fruit' },
-		{ key: 'Melon', text: 'Melon', value: 'Melon' }
+		{ key: 'Melon', text: 'Melon', value: 'Melon' },
+		{ key: 'Red', text: 'Red', value: 'Red' },
+		{ key: 'Black', text: 'Black', value: 'Black' },
+		{ key: 'Blue', text: 'Blue', value: 'Blue' }
 	]
 
 export const red_fruit = [

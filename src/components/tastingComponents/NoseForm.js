@@ -3,7 +3,7 @@ import { Dropdown, Button, Form, Radio, TextArea, Select, Grid, Header, Image } 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createNoseScore } from '../../actions/wineActions'
-import { faults, white_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
+import { faults, all_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
 
 
 class NoseForm extends React.Component {
@@ -141,7 +141,7 @@ class NoseForm extends React.Component {
 									<Grid.Column width={6}>
 										<Form.Group inline>
 											<label>Fruit:</label>
-												<Dropdown placeholder='Select Up To Two' name="fruit" fluid multiple selection options={white_fruit} onChange={this.handleInputChange} />	
+												<Dropdown placeholder='Select Up To Two' name="fruit" fluid multiple selection options={all_fruit} onChange={this.handleInputChange} />	
 										</Form.Group>
 										<Form.Group inline>
 											<label>Fruit Character:</label>
