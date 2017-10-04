@@ -25,7 +25,7 @@ class WinePalateRadarChart extends React.Component {
       return memo;
     }, {});
     return Object.keys(groupedData).reduce((memo, key) => {
-      memo[key] = Math.max(...groupedData[key]);
+      memo[key] = 6;
       return memo;
     }, {});
   }
