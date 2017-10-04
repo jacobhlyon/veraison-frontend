@@ -4,7 +4,17 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createPalateScore } from '../../actions/wineActions' 
 import { faults, white_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
+import 'rc-slider/assets/index.css'
+import Slider from 'rc-slider'
 
+	const style = { width: 400, margin: 50 }
+	const marks = {
+		1: 'Low',
+		2: 'Medium -',
+		3: 'Medium',
+		4: 'Medium +',
+		5: 'High'
+	}
 
 class PalateForm extends React.Component {
 
@@ -32,7 +42,35 @@ class PalateForm extends React.Component {
     	additional_notes: ""
 	}
 
+	handleAlcoholChange = (value) => {
+		this.setState({
+			alcohol: value
+		})
+	}
 
+	handleComplexityChange = (value) => {
+		this.setState({
+			complexity: value
+		})
+	}
+
+	handleLengthChange = (value) => {
+		this.setState({
+			length: value
+		})
+	}
+
+	handleAcidChange = (value) => {
+		this.setState({
+			acid: value
+		})
+	}
+
+	handleTanninChange = (value) => {
+		this.setState({
+			tannin: value
+		})
+	}
 
 	handleInputChange = (event, eventProperties) => {
 		if (eventProperties.name === "bitter" || eventProperties.name === "wood") {
@@ -52,9 +90,9 @@ class PalateForm extends React.Component {
 		}
 	}
 
+
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state)
 
 		const palateScoreParams = {
 		wine_score_id: this.props.wine.currentWineScore.id,
@@ -188,13 +226,9 @@ class PalateForm extends React.Component {
 												<Form.Field control={Radio} label="Yes" name="bitter" value="true" onChange={this.handleInputChange} checked={this.state.bitter === true}/>
 												<Form.Field control={Radio} label="No" name="bitter" value="false"  onChange={this.handleInputChange} checked={this.state.bitter === false}/>	
 										</Form.Group>
-										<Form.Group inline>
+										<Form.Group inline style={style}>
 											<label>Tannin (Red Wines Only):</label>
-												<Form.Field control={Radio} label="Low" name="tannin" value={1} onChange={this.handleInputChange} checked={this.state.tannin === 1}/>
-												<Form.Field control={Radio} label="Medium-" name="tannin" value={2}  onChange={this.handleInputChange} checked={this.state.tannin === 2}/>
-												<Form.Field control={Radio} label="Medium" name="tannin" value={3} onChange={this.handleInputChange} checked={this.state.tannin === 3}/>
-												<Form.Field control={Radio} label="Medium+" name="tannin" value={4} onChange={this.handleInputChange} checked={this.state.tannin === 4}/>
-												<Form.Field control={Radio} label="High" name="tannin" value={5} onChange={this.handleInputChange} checked={this.state.tannin === 5}/>	
+												<Slider min={1} marks={marks} name="tannin" step={null} min={1} max={5} onChange={this.handleTanninChange} defaultValue={3} />
 										</Form.Group>
 									</Grid.Column>
 									<Grid.Column width={4}></Grid.Column>
@@ -205,21 +239,13 @@ class PalateForm extends React.Component {
 											<Image size="tiny" src={require('../../images/011-drink.png')} />
 									</Grid.Column>
 									<Grid.Column width={6}>
-										<Form.Group inline>
+										<Form.Group inline style={style}>
 											<label>Acid:</label>
-												<Form.Field control={Radio} label="Low" name="acid" value={1} onChange={this.handleInputChange} checked={this.state.acid === 1}/>
-												<Form.Field control={Radio} label="Medium-" name="acid" value={2}  onChange={this.handleInputChange} checked={this.state.acid === 2}/>
-												<Form.Field control={Radio} label="Medium" name="acid" value={3} onChange={this.handleInputChange} checked={this.state.acid === 3}/>
-												<Form.Field control={Radio} label="Medium+" name="acid" value={4} onChange={this.handleInputChange} checked={this.state.acid === 4}/>
-												<Form.Field control={Radio} label="High" name="acid" value={5} onChange={this.handleInputChange} checked={this.state.acid === 5}/>	
+												<Slider min={1} marks={marks} name="acid" step={null} min={1} max={5} onChange={this.handleAcidChange} defaultValue={3} />
 										</Form.Group>
-										<Form.Group inline>
+										<Form.Group inline style={style}>
 											<label>Alcohol:</label>
-												<Form.Field control={Radio} label="Low" name="alcohol" value={1} onChange={this.handleInputChange} checked={this.state.alcohol === 1}/>
-												<Form.Field control={Radio} label="Medium-" name="alcohol" value={2}  onChange={this.handleInputChange} checked={this.state.alcohol === 2}/>
-												<Form.Field control={Radio} label="Medium" name="alcohol" value={3} onChange={this.handleInputChange} checked={this.state.alcohol === 3}/>
-												<Form.Field control={Radio} label="Medium+" name="alcohol" value={4} onChange={this.handleInputChange} checked={this.state.alcohol === 4}/>
-												<Form.Field control={Radio} label="High" name="alcohol" value={5} onChange={this.handleInputChange} checked={this.state.alcohol === 5}/>	
+												<Slider min={1} marks={marks} name="alcohol" step={null} min={1} max={5} onChange={this.handleAlcoholChange} defaultValue={3} />
 										</Form.Group>
 									</Grid.Column>
 										<Grid.Column width={4}></Grid.Column>
@@ -252,21 +278,13 @@ class PalateForm extends React.Component {
 											<Image size="tiny" src={require('../../images/007-tool.png')} />
 									</Grid.Column>
 									<Grid.Column width={6}>
-										<Form.Group inline>
-											<label>Length:</label>
-												<Form.Field control={Radio} label="Short" name="length" value={1}onChange={this.handleInputChange} checked={this.state.length === 1}/>
-												<Form.Field control={Radio} label="Medium-" name="length" value={2}  onChange={this.handleInputChange} checked={this.state.length === 2}/>
-												<Form.Field control={Radio} label="Medium" name="length" value={3} onChange={this.handleInputChange} checked={this.state.length === 3}/>
-												<Form.Field control={Radio} label="Medium+" name="length" value={4} onChange={this.handleInputChange} checked={this.state.length === 4}/>
-												<Form.Field control={Radio} label="Long" name="length" value={5} onChange={this.handleInputChange} checked={this.state.length === 5}/>	
+										<Form.Group inline style={style}>
+											<label>Finish Length:</label>
+												<Slider min={1} marks={marks} name="length" step={null} min={1} max={5} onChange={this.handleLengthChange} defaultValue={3} />	
 										</Form.Group>
-										<Form.Group inline>
+										<Form.Group inline style={style}>
 											<label>Complexity:</label>
-												<Form.Field control={Radio} label="Low" name="complexity" value={1} onChange={this.handleInputChange} checked={this.state.complexity === 1}/>
-												<Form.Field control={Radio} label="Medium-" name="complexity" value={2}  onChange={this.handleInputChange} checked={this.state.complexity === 2}/>
-												<Form.Field control={Radio} label="Medium" name="complexity" value={3} onChange={this.handleInputChange} checked={this.state.complexity === 3}/>
-												<Form.Field control={Radio} label="Medium+" name="complexity" value={4} onChange={this.handleInputChange} checked={this.state.complexity === 4}/>
-												<Form.Field control={Radio} label="High" name="complexity" value={5} onChange={this.handleInputChange} checked={this.state.complexity === 5}/>	
+												<Slider min={1} marks={marks} name="complexity" step={null} min={1} max={5} onChange={this.handleComplexityChange} defaultValue={3} />	
 										</Form.Group>
 									</Grid.Column>
 									<Grid.Column width={4}></Grid.Column>
