@@ -13,10 +13,14 @@ class WinePage extends React.Component {
 		activeItem: 'Sight'
 	}
 
+
 	componentDidMount() {
+		const wineId = JSON.parse(localStorage.getItem("currentWineObject"))
+		const wine_score_id = localStorage.getItem("currentWineScoreId")
+		console.log(wineId)
 		const data = {
-			id: this.props.wine.currentPalateScore.wine_score_id,
-			wine_id: this.props.wine.currentWine.id
+			id: wine_score_id,
+			wine_id: wineId
 		}
 		this.props.fetchAllScoresForWine(data)
 	}
@@ -25,7 +29,6 @@ class WinePage extends React.Component {
 
 	render() {
 		const { activeItem } = this.state
-		console.log(this.props)
 
 		if (this.props.wine.currentWine === undefined || this.props.wine.avgPalateScores === undefined) {
 				return (
@@ -39,7 +42,7 @@ class WinePage extends React.Component {
 					<div>
 						<Grid>
 							<Grid.Row>
-								<Grid.Column width={2}></Grid.Column>
+								<Grid.Column width={4}></Grid.Column>
 								<Segment raised>
 								<Grid.Column width={3}>
 									<br />
@@ -47,19 +50,19 @@ class WinePage extends React.Component {
 								</Grid.Column>
 								</Segment>
 								<Segment raised>
-								<Grid.Column width={8}>
-									<h1>{this.props.wine.currentWine.name}</h1>
-									<h3>{this.props.wine.currentWine.varietal}</h3>
-									<h4>{this.props.wine.currentWine.vintage}</h4>
-									<h4>{this.props.wine.currentWine.region}</h4>
+								<Grid.Column width={10}>
+									<h1 style={{fontWeight: "bolder"}}>{this.props.wine.currentWine.name}</h1>
+									<h2>{this.props.wine.currentWine.vintage}</h2>
+									<h4 style={{fontWeight: "lighter"}}>{this.props.wine.currentWine.varietal}</h4>
+									<h4 style={{fontWeight: "lighter"}}>{this.props.wine.currentWine.region}</h4>
 								</Grid.Column>
 								</Segment>
 								<Segment raised>
 								<Grid.Column width={3}>
 									<br />
 									<h3>Chart Key:</h3>
-									<Header as='h3' color="blue">Your Palate Score</Header>
-									<Header as='h3' color="red">Average Score for This Wine</Header>
+									<Header as='h4' color="blue" style={{fontWeight: "lighter"}}>Your Palate Score</Header>
+									<Header as='h4' color="red" style={{fontWeight: "lighter"}}>Average Score for This Wine</Header>
 								</Grid.Column>
 								</Segment>
 								<Grid.Column width={2}></Grid.Column>
@@ -96,6 +99,7 @@ class WinePage extends React.Component {
 				        		<Grid.Column width={1}></Grid.Column>
 				        	</Grid.Row>
 						</Grid>
+						<br />
 				      </div>
 				)
 			}

@@ -14,8 +14,8 @@ import { Table } from 'semantic-ui-react'
 		  <Table celled selectable>
 		  	<Table.Header>
 		      <Table.Row>
-		        <Table.HeaderCell>Nose Category</Table.HeaderCell>
-		        <Table.HeaderCell>Score</Table.HeaderCell>
+		        <Table.HeaderCell style={{textTransform: "uppercase", letterSpacing: "2px"}}>Nose Category</Table.HeaderCell>
+		        <Table.HeaderCell style={{textTransform: "uppercase", letterSpacing: "2px"}}>Score</Table.HeaderCell>
 		      </Table.Row>
 		    </Table.Header>
 

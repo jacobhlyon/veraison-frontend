@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Button, Dimmer, Loader, Card, Grid } from 'semantic-ui-react'
+import { Button, Dimmer, Loader, Card, Grid, Divider } from 'semantic-ui-react'
 import { fetchUserWines } from '../../actions/userActions'
 import { bindActionCreators } from 'redux'
 import WineSearchResultsContainer from '../wineComponents/WineSearchResultsContainer'
@@ -36,10 +36,10 @@ class UserProfile extends React.Component {
 				<div>
 					<h1>Welcome, {this.props.auth.currentUser.first_name}</h1>
 					<Button primary href='/winesearch'>Find a Wine to Taste</Button>
-					<h3>Recently-Rated Wines:</h3>
+					<Divider />
 						<Grid>
 							<Grid.Row>
-								<Grid.Column width={1}></Grid.Column>
+								<Grid.Column width={2}></Grid.Column>
 								<Grid.Column width={14}>
 									<Card.Group>
 										{userWines}

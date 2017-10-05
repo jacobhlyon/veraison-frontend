@@ -6,10 +6,10 @@ const NosePalateComparisonTable = (props) => {
 	return (
 		<Table celled selectable>
 			<Table.Header>
-				<Table.Row>
-					<Table.HeaderCell>Category</Table.HeaderCell>
-			        <Table.HeaderCell>Nose Score</Table.HeaderCell>
-			        <Table.HeaderCell>Palate Score</Table.HeaderCell>
+				<Table.Row >
+					<Table.HeaderCell style={{textTransform: "uppercase", letterSpacing: "2px"}}>Category</Table.HeaderCell>
+			        <Table.HeaderCell style={{textTransform: "uppercase", letterSpacing: "2px"}}>Nose Score</Table.HeaderCell>
+			        <Table.HeaderCell style={{textTransform: "uppercase", letterSpacing: "2px"}}>Palate Score</Table.HeaderCell>
 			    </Table.Row>
 			</Table.Header>
 
