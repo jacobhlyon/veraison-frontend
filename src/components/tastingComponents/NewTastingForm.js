@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Button, Form, Radio } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { createWineScore } from '../../actions/wineActions'
 import { bindActionCreators } from 'redux'
 
@@ -15,25 +15,6 @@ class NewTastingForm extends React.Component {
 		this.props.createWineScore(wineScoreParams)
 			.then(data => this.props.history.push('/sightform'))
 	}
-
-	// may get to this later
-	// state = {
-	// 	wine_color: ""
-	// }
-
-	// handleInputChange = (event, eventProperties) => {
-	// 	const value = eventProperties.value
-	// 	const target = eventProperties.name
-	// 	this.setState({
-	// 		[target]: value
-	// 	})
-	// 	const data = {
-	// 		wine_id: this.props.wine.id,
-	// 		wine_color: eventProperties.value
-	// 	}
-	// 	this.props.updateWine(data)
-	// }
-
 
 	render() {
 

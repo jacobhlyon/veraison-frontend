@@ -5,9 +5,6 @@ function wineReducer(state ={allWines: {}}, action) {
 		case "PERSISTED_WINE":
 			localStorage.setItem("currentWine", action.payload)
 			return Object.assign({}, state, {currentWine: action.payload})
-		// case "UPDATED_WINE":
-		// 	localStorage.setItem("currentWine", action.payload)
-		// 	return Object.assign({}, state, {currentWine: action.payload})
 		case "CREATED_WINE_SCORE":
 			localStorage.setItem("currentWineScore", action.payload)
 			return Object.assign({}, state, {currentWineScore: action.payload})

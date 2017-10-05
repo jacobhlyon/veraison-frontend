@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 class WinePalateRadarChart extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
-
 
     const palateScoreData = [
       { acid: this.props.wine.currentPalateScore.acid, alcohol: this.props.wine.currentPalateScore.alcohol, complexity: this.props.wine.currentPalateScore.complexity, length: this.props.wine.currentPalateScore.length, tannin: this.props.wine.currentPalateScore.tannin },
@@ -42,7 +40,7 @@ class WinePalateRadarChart extends React.Component {
   }
 
   render() {
-    console.log(this.state.data)
+    
     return (
       <VictoryChart polar
         theme={VictoryTheme.material}

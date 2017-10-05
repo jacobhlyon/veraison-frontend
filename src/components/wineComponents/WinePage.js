@@ -4,11 +4,21 @@ import { Image, Grid, Dimmer, Loader, Menu, Segment } from 'semantic-ui-react'
 import WinePalateRadarChart from './WinePalateRadarChart'
 import NosePalateComparisonTableContainer from '../../containers/wineContainers/NosePalateComparisonTableContainer'
 import AllScoresContainer from '../../containers/wineContainers/AllScoresContainer'
+import { fetchAllScoresForWine } from '../../actions/wineActions'
+import { bindActionCreators } from 'redux'
 
 
 class WinePage extends React.Component {
 	state = {
 		activeItem: 'Sight'
+	}
+
+	componentDidMount() {
+		const data = {
+			id: this.props.wine.currentPalateScore.wine_score_id,
+			wine_id: this.props.wine.currentWine.id
+		}
+		this.props.fetchAllScoresForWine(data)
 	}
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -17,7 +27,7 @@ class WinePage extends React.Component {
 		const { activeItem } = this.state
 		console.log(this.props)
 
-		if (this.props.wine.currentWine === undefined) {
+		if (this.props.wine.currentWine === undefined || this.props.wine.avgPalateScores === undefined) {
 				return (
 				    <Dimmer active inverted>
 				      <Loader size="large" />
@@ -75,4 +85,9 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(mapStateToProps)(WinePage)
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({fetchAllScoresForWine}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(WinePage)

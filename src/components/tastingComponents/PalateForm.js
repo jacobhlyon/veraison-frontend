@@ -117,7 +117,6 @@ class PalateForm extends React.Component {
      	complexity: this.state.complexity,
     	additional_notes: this.state.additional_notes
 	}
-		console.log(palateScoreParams)
 		this.props.createPalateScore(palateScoreParams)
 			.then(data => this.props.history.push('/winepage'))
 	}

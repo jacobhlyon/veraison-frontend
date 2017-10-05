@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Button, Form, Radio, TextArea, Select, Grid, Header, Image } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Radio, TextArea, Grid, Header, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createNoseScore } from '../../actions/wineActions'
@@ -11,7 +11,7 @@ class NoseForm extends React.Component {
 	state = {
 		wine_score_id: "",
 		clean: "",
-     	faults: {},
+     	faults: {key: "No Faults"},
      	other_faults: "",
      	intensity: "",
     	age: "",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import WineSearchResultsContainer from './WineSearchResultsContainer'
 import { bindActionCreators } from 'redux'
 import { persistWine } from '../../actions/wineActions'
@@ -41,9 +41,17 @@ class WineSearchResults extends React.Component {
 	render() {
 		const allWines = this.props.wine.map(wine => <WineSearchResultsContainer handleClick={this.handleClick} props={wine} key={wine.code}/>)
 		return(
-			<Card.Group> 
-				{allWines}
-			</Card.Group>
+				<Grid>
+					<Grid.Row>
+						<Grid.Column width={1}></Grid.Column>
+						<Grid.Column width={14}>
+							<Card.Group> 
+								{allWines}
+							</Card.Group>
+						</Grid.Column>
+						<Grid.Column width={1}></Grid.Column>
+					</Grid.Row>
+				</Grid>
 		)
 	}
 }
