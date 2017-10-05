@@ -11,7 +11,7 @@ class NoseForm extends React.Component {
 	state = {
 		wine_score_id: "",
 		clean: "",
-     	faults: {key: "No Faults"},
+     	faults: ["No Faults"],
      	other_faults: "",
      	intensity: "",
     	age: "",
@@ -208,6 +208,7 @@ class NoseForm extends React.Component {
 							</Grid >
 							<br />
 							<Form.Field control={Button}>Submit</Form.Field>
+							<br />
 						</Form>
 					</div>
 		)

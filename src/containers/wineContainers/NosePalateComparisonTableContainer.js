@@ -16,42 +16,42 @@ const NosePalateComparisonTable = (props) => {
 		    <Table.Body>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Fruit</Label>
+			        	<Label as='a' color='blue' ribbon>Fruit</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.fruit.sort().join(", ")}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.fruit.sort().join(", ")}</Table.Cell>
 			    </Table.Row>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Fruit Character</Label>
+			        	<Label as='a' color='blue' ribbon>Fruit Character</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.fruit_character.sort().join(", ")}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.fruit_character.sort().join(", ")}</Table.Cell>
 			    </Table.Row>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Fruit Description</Label>
+			        	<Label as='a' color='blue' ribbon>Fruit Description</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.fruit_description}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.fruit_description}</Table.Cell>
 			    </Table.Row>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Non-Fruit</Label>
+			        	<Label as='a' color='blue' ribbon>Non-Fruit</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.non_fruit.sort().join(", ")}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.non_fruit.sort().join(", ")}</Table.Cell>
 			    </Table.Row>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Organic Earth</Label>
+			        	<Label as='a' color='blue' ribbon>Organic Earth</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.organic_earth.sort().join(", ")}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.organic_earth.sort().join(", ")}</Table.Cell>
 			    </Table.Row>
 			    <Table.Row>
 			        <Table.Cell>
-			        	<Label ribbon>Inorganic Earth</Label>
+			        	<Label as='a' color='blue' ribbon>Inorganic Earth</Label>
 			        </Table.Cell>
 			        <Table.Cell>{props.wine.currentNoseScore.inorganic_earth.sort().join(", ")}</Table.Cell>
 			        <Table.Cell>{props.wine.currentPalateScore.inorganic_earth.sort().join(", ")}</Table.Cell>

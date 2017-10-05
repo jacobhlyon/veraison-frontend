@@ -180,6 +180,7 @@ class SightForm extends React.Component {
 					</Grid >
 					<br />
 					<Form.Field control={Button}>Submit</Form.Field>
+					<br />
 				</Form>
 		</div>
 		)

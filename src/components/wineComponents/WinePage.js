@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Image, Grid, Dimmer, Loader, Menu, Segment } from 'semantic-ui-react'
+import { Image, Grid, Dimmer, Loader, Menu, Segment, Header, Divider } from 'semantic-ui-react'
 import WinePalateRadarChart from './WinePalateRadarChart'
 import NosePalateComparisonTableContainer from '../../containers/wineContainers/NosePalateComparisonTableContainer'
 import AllScoresContainer from '../../containers/wineContainers/AllScoresContainer'
@@ -37,31 +37,53 @@ class WinePage extends React.Component {
 				
 				return(
 					<div>
-						<Grid celled>
+						<Grid>
 							<Grid.Row>
-								<Grid.Column width={4}>
-									<Image centered size='small' src={this.props.wine.currentWine.image} />
+								<Grid.Column width={2}></Grid.Column>
+								<Segment raised>
+								<Grid.Column width={3}>
+									<br />
+									<Image size='small' src={this.props.wine.currentWine.image} />
 								</Grid.Column>
+								</Segment>
+								<Segment raised>
 								<Grid.Column width={8}>
-									<h2>{this.props.wine.currentWine.winery}</h2>
+									<h1>{this.props.wine.currentWine.name}</h1>
 									<h3>{this.props.wine.currentWine.varietal}</h3>
 									<h4>{this.props.wine.currentWine.vintage}</h4>
 									<h4>{this.props.wine.currentWine.region}</h4>
 								</Grid.Column>
-								<Grid.Column width={4}>
-									<h2>Snooth Rating:{this.props.wine.currentWine.snooth_rank}</h2>
-									<h2>{this.props.auth.currentUser.first_name}'s Rating: TBD</h2>
+								</Segment>
+								<Segment raised>
+								<Grid.Column width={3}>
+									<br />
+									<h3>Chart Key:</h3>
+									<Header as='h3' color="blue">Your Palate Score</Header>
+									<Header as='h3' color="red">Average Score for This Wine</Header>
 								</Grid.Column>
+								</Segment>
+								<Grid.Column width={2}></Grid.Column>
 							</Grid.Row>
+							<Divider />
 							<Grid.Row>
-								<Grid.Column width={8}>
+								<Grid.Column width={1}></Grid.Column>
+								<Grid.Column width={6}>
+									<h2>Nose and Palate Comparison</h2>
+									<Divider />
+									<br /><br /><br /><br />
 									<NosePalateComparisonTableContainer wine={this.props.wine}/>
 								</Grid.Column>
-								<Grid.Column width={4}>
+								<Grid.Column width={2}></Grid.Column>
+								<Grid.Column width={6}>
+									<h2>Palate Score</h2>
+									<Divider />
 									<WinePalateRadarChart />	
 								</Grid.Column>
+								<Grid.Column width={1}></Grid.Column>
 							</Grid.Row>
-						</Grid>
+							<Grid.Row> 
+								<Grid.Column width={1}></Grid.Column>
+								<Grid.Column width={14}>
 				        <Menu attached='top' tabular>
 				          <Menu.Item name='Sight' active={activeItem === 'Sight'} onClick={this.handleItemClick} />
 				          <Menu.Item name='Nose' active={activeItem === 'Nose'} onClick={this.handleItemClick} />
@@ -70,6 +92,10 @@ class WinePage extends React.Component {
 				        <Segment attached='bottom'>
 				     		<AllScoresContainer currentScore={this.state.activeItem} scoreInfo={this.props.wine}/>
 				        </Segment>
+				        		</Grid.Column>
+				        		<Grid.Column width={1}></Grid.Column>
+				        	</Grid.Row>
+						</Grid>
 				      </div>
 				)
 			}
