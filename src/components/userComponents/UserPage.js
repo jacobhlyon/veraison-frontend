@@ -37,7 +37,7 @@ class UserProfile extends React.Component {
 					<h1>Welcome, {this.props.auth.currentUser.first_name}</h1>
 					<Button primary href='/winesearch'>Find a Wine to Taste</Button>
 					<h3>Recently-Rated Wines:</h3>
-						<Card.Group>
+						<Card.Group className="ui cards">
 							{userWines}
 						</Card.Group>	
 				</div>

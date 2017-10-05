@@ -21,7 +21,10 @@ function wineReducer(state ={allWines: {}}, action) {
 			return Object.assign({}, state, {allWines: action.payload})	
 		case "FETCHED_ALL_SCORES_FOR_WINE":
 			localStorage.setItem("currentWine", action.payload.wine)
-			return Object.assign({}, state, {currentNoseScore: action.payload.nose_score[0], currentSightScore: action.payload.sight_score[0], currentPalateScore: action.payload.palate_score[0], currentWine: action.payload.wine})
+			console.log(action.payload)
+			return Object.assign({}, state, {currentNoseScore: action.payload.allScores.nose_score[0], 
+				currentSightScore: action.payload.allScores.sight_score[0], currentPalateScore: action.payload.allScores.palate_score[0], 
+				currentWine: action.payload.allScores.wine, avgPalateScores: action.payload.palate})
 		default:
 			return state
 	}

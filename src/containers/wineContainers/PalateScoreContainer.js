@@ -61,7 +61,7 @@ import { Table } from 'semantic-ui-react'
 		      </Table.Row>
 		      <Table.Row>
 		        <Table.Cell>Bitter</Table.Cell>
-		        <Table.Cell>{props.score.bitter.toString()}</Table.Cell>
+		        <Table.Cell>{props.score.bitter}</Table.Cell>
 		      </Table.Row>
 		      <Table.Row>
 		        <Table.Cell>Texture</Table.Cell>

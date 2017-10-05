@@ -30,7 +30,7 @@ class PalateForm extends React.Component {
      	wood: "",
      	wood_type: "",
      	wood_age: "",
-     	bitter: "",
+     	bitter: "n/a",
      	tannin: "",
      	acid: "",
      	alcohol: "",

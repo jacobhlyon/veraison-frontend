@@ -15,7 +15,7 @@ class WinePage extends React.Component {
 
 	render() {
 		const { activeItem } = this.state
-
+		console.log(this.props)
 
 		if (this.props.wine.currentWine === undefined) {
 				return (

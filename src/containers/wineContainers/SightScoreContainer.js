@@ -33,7 +33,7 @@ import { Table } from 'semantic-ui-react'
 		      </Table.Row>
 		      <Table.Row>
 		        <Table.Cell>Rim Variation</Table.Cell>
-		        <Table.Cell>{props.score.rim_variation}</Table.Cell>
+		        <Table.Cell>{props.score.rim_variation.toString()}</Table.Cell>
 		      </Table.Row>
 		      <Table.Row>
 		        <Table.Cell>Staining</Table.Cell>
@@ -45,7 +45,7 @@ import { Table } from 'semantic-ui-react'
 		      </Table.Row>
 		      <Table.Row>
 		        <Table.Cell>Gas Evidence</Table.Cell>
-		        <Table.Cell>{props.score.gas_evidence}</Table.Cell>
+		        <Table.Cell>{props.score.gas_evidence.toString()}</Table.Cell>
 		      </Table.Row>
 		    </Table.Body>
 		  </Table>

@@ -10,7 +10,8 @@ class WinePalateRadarChart extends React.Component {
 
 
     const palateScoreData = [
-      { acid: this.props.wine.currentPalateScore.acid, alcohol: this.props.wine.currentPalateScore.alcohol, complexity: this.props.wine.currentPalateScore.complexity, length: this.props.wine.currentPalateScore.length }
+      { acid: this.props.wine.currentPalateScore.acid, alcohol: this.props.wine.currentPalateScore.alcohol, complexity: this.props.wine.currentPalateScore.complexity, length: this.props.wine.currentPalateScore.length, tannin: this.props.wine.currentPalateScore.tannin },
+      { acid: this.props.wine.avgPalateScores.acid, alcohol: this.props.wine.avgPalateScores.alcohol, complexity: this.props.wine.avgPalateScores.complexity, length: this.props.wine.avgPalateScores.length,  tannin: this.props.wine.avgPalateScores.tannin}
     ];
 
     this.state = {
@@ -25,7 +26,7 @@ class WinePalateRadarChart extends React.Component {
       return memo;
     }, {});
     return Object.keys(groupedData).reduce((memo, key) => {
-      memo[key] = 6;
+      memo[key] = 5;
       return memo;
     }, {});
   }
@@ -47,7 +48,7 @@ class WinePalateRadarChart extends React.Component {
         theme={VictoryTheme.material}
         domain={{ y: [ 0, 1 ] }}
       >
-        <VictoryGroup colorScale={["blue"]}
+        <VictoryGroup colorScale={["blue", "red"]}
           style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
         >
           {this.state.data.map((data, i) => {
