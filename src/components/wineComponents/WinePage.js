@@ -16,8 +16,7 @@ class WinePage extends React.Component {
 
 	componentDidMount() {
 		const wineId = JSON.parse(localStorage.getItem("currentWineObject"))
-		const wine_score_id = localStorage.getItem("currentWineScoreId")
-		console.log(wineId)
+		const wine_score_id = JSON.parse(localStorage.getItem("currentWineScoreId"))
 		const data = {
 			id: wine_score_id,
 			wine_id: wineId

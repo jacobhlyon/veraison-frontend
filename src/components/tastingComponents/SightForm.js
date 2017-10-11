@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Form, Radio, Grid, Header, Image } from 'semantic-ui-react'
+import { Button, Form, Radio, Grid, Header, Image, Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createSightScore } from '../../actions/wineActions'
+import { clarity, white_sight, red_sight, rim_variation, gas_evidence } from './PopupData'
 
 class SightForm extends React.Component {
 
@@ -72,7 +73,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/002-drink-1.png')} />
+								{clarity}
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
@@ -93,7 +94,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/015-apple-1.png')} />
+								{white_sight}
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
@@ -115,7 +116,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/025-strawberry.png')} />
+									{red_sight}
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
@@ -139,7 +140,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/026-cup.png')} />
+								{rim_variation}
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>
@@ -166,7 +167,7 @@ class SightForm extends React.Component {
 						<Grid.Row>
 							<Grid.Column width={4}></Grid.Column>
 							<Grid.Column width={2}>
-									<Image size="tiny" src={require('../../images/012-champagne.png')} />
+								{gas_evidence}
 							</Grid.Column>
 							<Grid.Column width={6}>
 									<Form.Group inline>

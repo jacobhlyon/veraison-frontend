@@ -12,7 +12,6 @@ export function searchNewWine(winery, varietal, vintage) {
 
 export function persistWine(data) {
 	return function(dispatch) {
-		console.log(data)
 	    const requestInfo = {
 	      method: 'POST',
 	      body: JSON.stringify({data}),
