@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createNoseScore } from '../../actions/wineActions'
 import { faults, all_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
+import { faults_popup, intensity, nose_age, nose_fruit, nose_non_fruit, nose_wood } from './PopupData'
 
 
 class NoseForm extends React.Component {
@@ -87,7 +88,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/028-egg.png')} />
+										{faults_popup}	
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -106,7 +107,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/009-fire.png')} />
+										{intensity}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -121,7 +122,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/013-feeding-bottle.png')} />
+										{nose_age}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -136,7 +137,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/031-cherry.png')} />
+										{nose_fruit}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -154,7 +155,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/021-food-1.png')} />
+										{nose_non_fruit}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -175,7 +176,7 @@ class NoseForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/036-nature.png')} />
+										{nose_wood}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>

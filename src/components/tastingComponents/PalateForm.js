@@ -6,6 +6,7 @@ import { createPalateScore } from '../../actions/wineActions'
 import { faults, all_fruit, fruit_character, non_fruit, organic_earth, inorganic_earth} from './TastingFormData'
 import 'rc-slider/assets/index.css'
 import Slider from 'rc-slider'
+import { sweetness, palate_fruit, palate_non_fruit, palate_wood, bitter_tannin, acid_alcohol, body_texture, length_complexity } from './PopupData'
 
 	const style = { width: 400, margin: 50 }
 	const marks = {
@@ -137,7 +138,7 @@ class PalateForm extends React.Component {
 							<Grid.Row>
 								<Grid.Column width={4}></Grid.Column>
 								<Grid.Column width={2}>
-										<Image size="tiny" src={require('../../images/001-food-3.png')} />
+									{sweetness}
 								</Grid.Column>
 								<Grid.Column width={6}>
 									<Form.Group inline>
@@ -152,7 +153,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/031-cherry.png')} />
+										{palate_fruit}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -170,7 +171,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/021-food-1.png')} />
+										{palate_non_fruit}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -191,7 +192,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/036-nature.png')} />
+										{palate_wood}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -217,7 +218,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/030-grapes.png')} />
+										{bitter_tannin}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -235,7 +236,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/011-drink.png')} />
+										{acid_alcohol}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline style={style}>
@@ -252,7 +253,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/010-diamond.png')} />
+										{body_texture}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline>
@@ -274,7 +275,7 @@ class PalateForm extends React.Component {
 								<Grid.Row>
 									<Grid.Column width={4}></Grid.Column>
 									<Grid.Column width={2}>
-											<Image size="tiny" src={require('../../images/007-tool.png')} />
+										{length_complexity}
 									</Grid.Column>
 									<Grid.Column width={6}>
 										<Form.Group inline style={style}>
