@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
-// import authorize from './components/hocs/authorize'
 import { bindActionCreators } from 'redux'
 import { fetchUsers } from './actions/userActions'
 import NavBar from './components/NavBar'

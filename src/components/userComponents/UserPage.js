@@ -20,6 +20,8 @@ class UserProfile extends React.Component {
 		}
 		this.props.fetchAllScoresForWine(data)
 			.then(data => this.props.history.push('/winepage'))
+			.catch(() => alert("This wine's score is incomplete!"))
+			.catch(() => this.props.history.push('/profile'))
 	}
 
 	render(){
@@ -39,7 +41,7 @@ class UserProfile extends React.Component {
 					<Divider />
 						<Grid>
 							<Grid.Row>
-								<Grid.Column width={2}></Grid.Column>
+								<Grid.Column width={1}></Grid.Column>
 								<Grid.Column width={14}>
 									<Card.Group>
 										{userWines}
