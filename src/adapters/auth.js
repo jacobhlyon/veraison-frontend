@@ -12,7 +12,7 @@ class Auth {
       }
     }
 
-    return fetch('http://localhost:3000/api/v1/login', requestInfo)
+    return fetch('https://veraison-api.herokuapp.com/api/v1/login', requestInfo)
       .then(res => {
         console.log(res.status)
         return res.json()
@@ -28,7 +28,7 @@ class Auth {
         "Content-Type":"application/json",
       }
     }
-    return fetch('http://localhost:3000/api/v1/users', requestInfo)
+    return fetch('https://veraison-api.herokuapp.com/api/v1/users', requestInfo)
       .then(res => {
         console.log(res.status)
         return res.json()
@@ -37,7 +37,7 @@ class Auth {
 
   static me() {
     const jwtToken = localStorage.getItem("token")
-    return fetch('http://localhost:3000/api/v1/me',{
+    return fetch('https://veraison-api.herokuapp.com/api/v1/me',{
       headers:{
         "Authorization":`Bearer ${jwtToken}`,
         "Accept":"application/json"

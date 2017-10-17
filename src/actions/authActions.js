@@ -9,7 +9,7 @@ export function loginUser(data, history) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/login', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/login', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "LOGGED_IN", payload: json})
@@ -27,7 +27,7 @@ export function logoutUser() {
 
 export function confirmCurrentUser(data) {
 	return function(dispatch) {
-		return fetch('http://localhost:3000/api/v1/me',{
+		return fetch('https://veraison-api.herokuapp.com/api/v1/me',{
 		      headers:{
 		        "Authorization":`Bearer ${data}`,
 		        "Accept":"application/json"

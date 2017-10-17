@@ -20,7 +20,7 @@ export function persistWine(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/wines', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/wines', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "PERSISTED_WINE", payload: json})
@@ -38,7 +38,7 @@ export function createWineScore(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/wine_scores', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/wine_scores', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "CREATED_WINE_SCORE", payload: json})
@@ -56,7 +56,7 @@ export function createSightScore(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/sight_scores', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/sight_scores', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "CREATED_SIGHT_SCORE", payload: json})
@@ -74,7 +74,7 @@ export function createNoseScore(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/nose_scores', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/nose_scores', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "CREATED_NOSE_SCORE", payload: json})
@@ -92,7 +92,7 @@ export function createPalateScore(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('http://localhost:3000/api/v1/palate_scores', requestInfo)
+	    return fetch('https://veraison-api.herokuapp.com/api/v1/palate_scores', requestInfo)
 	      .then(res => res.json())
 	      .then(json => {
 	      	dispatch({type: "CREATED_PALATE_SCORE", payload: json})
@@ -102,7 +102,7 @@ export function createPalateScore(data) {
 
 export function fetchAllWines() {
 	return function(dispatch) {
-		return fetch('http://localhost:3000/api/v1/wines')
+		return fetch('https://veraison-api.herokuapp.com/api/v1/wines')
 			.then(res => res.json())
 			.then(json => {
 				dispatch({type: "FETCHED_ALL_WINES", payload: json})
@@ -120,7 +120,7 @@ export function fetchAllScoresForWine(data) {
 	        "Accept":"application/json"
 	      }
 	    }
-		return fetch('http://localhost:3000/api/v1/scores', requestInfo)
+		return fetch('https://veraison-api.herokuapp.com/api/v1/scores', requestInfo)
 			.then(res => res.json())
 			.then(json => {
 				dispatch({type: "FETCHED_ALL_SCORES_FOR_WINE", payload: json})
