@@ -16,7 +16,7 @@ const LandingPage = () => {
 				</Grid.Column>
 			</Grid.Row>
 		</Grid>
-		<video poster="versaison.jpg" id="bgvid" playsInline autoPlay muted loop>
+		<video poster="veraison.jpg" id="bgvid" playsInline autoPlay muted loop>
         	<source src="/veraison.mp4" type="video/mp4" />
     	</video>
 		</div>
