@@ -3,9 +3,9 @@ import { Menu, Icon } from 'semantic-ui-react'
 
 const Footer = () => {
 	return(
-		<Menu inverted>
+		<div className="ui inverted vertical footer segment">
 			Copyright <Icon name='copyright' /> 2017 Jacob Lyon
-		</Menu>
+		</div>
 	)
 }
 
