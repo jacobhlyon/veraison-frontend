@@ -67,7 +67,6 @@ class NoseForm extends React.Component {
      	wood_age: this.state.wood_age,
     	additional_notes: this.state.additional_notes
 		}
-		console.log(noseScoreParams)
 		this.props.createNoseScore(noseScoreParams)
 			.then(this.props.history.push('/palateform'))
 	}

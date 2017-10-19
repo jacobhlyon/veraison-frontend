@@ -18,7 +18,6 @@ class NewTastingForm extends React.Component {
 
 	render() {
 
-	console.log(this.props)
 
 		return(
 			<div>
@@ -46,5 +45,3 @@ function mapDispatchToProps(dispatch){
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewTastingForm)
 
-// default background image
-// src="https://images.unsplash.com/photo-1495929427389-a6451f2e01fa?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop="
