@@ -9,6 +9,8 @@ Download all dependencies listed below to begin running app. Alpha version is li
 * [Live Demo](https://veraison.herokuapp.com)
 * [Backend Repo](https://github.com/jacobhlyon/veraison-backend)
 
+Veraison uses the [Snooth Api](https://api.snooth.com/) to pull basic in formation on specific wines. This also allows users to compare their scores to others.
+
 ## Built With
 
 * React.js via [create-react-app](https://github.com/facebookincubator/create-react-app) with JSX and ES6
@@ -23,7 +25,7 @@ Download all dependencies listed below to begin running app. Alpha version is li
 
 * [Twitter](https://www.flaticon.com/authors/twitter) for icons
 
-* [RC Slicer](https://github.com/react-component/slider) for form slider
+* [RC Slider](https://github.com/react-component/slider) for form slider
 
 * [Tonic Photo Studios](https://www.youtube.com/watch?v=ucMd_8UPFKg) for landing page cinemagraph
 
