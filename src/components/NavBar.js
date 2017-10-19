@@ -20,7 +20,10 @@ class NavBar extends React.Component {
 				<Menu inverted>
 					<Menu.Item name='home' href='/profile' />
 					<Menu.Item name='wineSearch' href='/winesearch' />
-					<Header as='h3' inverted color='grey' textAlign='center'>Copyright <Icon name='copyright' /> 2017 Jacob Lyon</Header>
+					<Menu.Menu position='center'>
+						<Menu.Item>
+							<Header as='h4' inverted color='grey'>Copyright <Icon name='copyright' /> 2017 Jacob Lyon</Header>
+						</Menu.Item>
 					<Menu.Menu position='right'>
 						<Menu.Item>
 							<Button primary href='/' onClick={this.handleLogOut}>Log Out</Button>
