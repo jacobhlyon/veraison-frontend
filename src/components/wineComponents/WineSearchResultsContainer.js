@@ -1,12 +1,11 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 const WineSearchResultsContainer = (wine) => {
 	
 	return (
 		<Card onClick={() => wine.handleClick(wine.props)}> 
 			<Card.Content>
-				<Image size='small' src={wine.props.image} />
 				<Card.Header>
 					{wine.props.winery}
 				</Card.Header>

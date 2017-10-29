@@ -43,12 +43,6 @@ class WinePage extends React.Component {
 							<Grid.Row>
 								<Grid.Column width={4}></Grid.Column>
 								<Segment raised>
-								<Grid.Column width={3}>
-									<br />
-									<Image size='small' src={this.props.wine.currentWine.image} />
-								</Grid.Column>
-								</Segment>
-								<Segment raised>
 								<Grid.Column width={10}>
 									<h1 style={{fontWeight: "bolder"}}>{this.props.wine.currentWine.name}</h1>
 									<h2>{this.props.wine.currentWine.vintage}</h2>
