@@ -65,11 +65,11 @@ class SignupForm extends React.Component {
 				</Form.Field>
 				<Form.Field>
 					<label>Password</label>
-					<input placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
+					<input type="password" placeholder='Password' data-name="password" onChange={this.handleInputChange} value={this.state.password}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Confirm Password</label>
-					<input placeholder='Confirm Password' data-name="password_confirmation" onChange={this.handleInputChange} value={this.state.password_confirmation}/>
+					<input type="password" placeholder='Confirm Password' data-name="password_confirmation" onChange={this.handleInputChange} value={this.state.password_confirmation}/>
 				</Form.Field>
 				<Button type='submit'>Submit</Button>
 			</Form>

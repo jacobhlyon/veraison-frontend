@@ -1,5 +1,5 @@
 export function loginUser(data, history) {
-	return function(dispatch) {
+	return async function(dispatch) {
 		const userJSON = JSON.stringify(data)
 	    const requestInfo = {
 	      method: 'POST',
@@ -9,11 +9,15 @@ export function loginUser(data, history) {
 	        "Accept":"application/json"
 	      }
 	    }
-	    return fetch('https://veraison-api.herokuapp.com/api/v1/login', requestInfo)
-	      .then(res => res.json())
-	      .then(json => {
-	      	dispatch({type: "LOGGED_IN", payload: json})
-	      })
+
+	    const fetched = await fetch('https://veraison-api.herokuapp.com/api/v1/login', requestInfo);
+	    const json = await fetched.json();
+	    dispatch({ type: 'LOGGED_IN', payload: json});
+	    // return fetch('https://veraison-api.herokuapp.com/api/v1/login', requestInfo)
+	    //   .then(res => res.json())
+	    //   .then(json => {
+	    //   	dispatch({type: "LOGGED_IN", payload: json})
+	    //   })
 	      
 	     
 	}
