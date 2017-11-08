@@ -14,7 +14,6 @@ import wineReducer from './reducers/wineReducer'
 const rootReducer = combineReducers({users: usersReducer, auth: authReducer, wine: wineReducer})
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-// console.log(store.getState())
 ReactDOM.render(
 	<Provider store={store} >
 		<Router>

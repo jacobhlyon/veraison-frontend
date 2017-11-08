@@ -21,6 +21,7 @@ import { confirmCurrentUser } from './actions/authActions'
 import NewTastingForm from './components/tastingComponents/NewTastingForm'
 import WinePage from './components/wineComponents/WinePage'
 import { fetchAllWines } from './actions/wineActions'
+import AboutPage from './components/AboutPage'
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
             <Route path="/winesearchresults" component={WineSearchResults} />
             <Route path="/form/new" component={NewTastingForm} />
             <Route path="/winepage" component={WinePage} />
+            <Route path="/about" component={AboutPage} />
         </div>
       </div>
     );
