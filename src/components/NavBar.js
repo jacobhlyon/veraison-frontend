@@ -38,6 +38,11 @@ class NavBar extends React.Component {
 				<Menu inverted>
 					<Menu.Item name='Welcome' />
 					<Menu.Item name='about' href='/about' />
+					<Menu.Menu position='center'>
+						<Menu.Item>
+							<Header as='h4' inverted color='grey'>Copyright <Icon name='copyright' /> 2017 Jacob Lyon</Header>
+						</Menu.Item>
+					</Menu.Menu>
 					<Menu.Menu position='right'>
 						<Menu.Item>
 							<Button primary href='/login'>Log In</Button>
