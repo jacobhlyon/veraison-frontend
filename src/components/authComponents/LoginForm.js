@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid } from 'semantic-ui-react'
 import { loginUser } from '../../actions/authActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
 	        	this.setState({
 	          		email: "",
 	          		password: ""
-	        	})	
+	        	})
 	      	this.props.history.push('/profile')
 	      	})
 	  }
@@ -42,7 +42,9 @@ class LoginForm extends React.Component {
 
 	render() {
 		return	(
-			<div>
+			<Grid>
+			<Grid.Column width={4} />
+			<Grid.Column width={8}>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
 						<label>Email</label>
@@ -54,13 +56,15 @@ class LoginForm extends React.Component {
 					</Form.Field>
 					<Button type='submit'>Submit</Button>
 				</Form>
-				<h3>Don't have an account?</h3> 
+				<h3>Don't have an account?</h3>
 				<a href="/signup">Sign up for Veraison</a>
-			</div>
+			</Grid.Column>
+			<Grid.Column width={4} />
+			</Grid>
 		)
 	}
 
-} 
+}
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({loginUser}, dispatch)
