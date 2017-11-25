@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid } from 'semantic-ui-react'
 import { createUser } from '../../actions/userActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
 
 	    const newUserParams = {
 	      first_name: this.state.first_name,
-	      last_name: this.state.last_name,	
+	      last_name: this.state.last_name,
 	      email: this.state.email,
 	      password: this.state.password,
 	      password_confirmation: this.state.password_confirmation
@@ -50,6 +50,9 @@ class SignupForm extends React.Component {
 
 	render() {
 		return	(
+			<Grid>
+			<Grid.Column width={4} />
+			<Grid.Column width={8} >
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Field>
 					<label>First Name</label>
@@ -73,10 +76,13 @@ class SignupForm extends React.Component {
 				</Form.Field>
 				<Button type='submit'>Submit</Button>
 			</Form>
+			</Grid.Column>
+			<Grid.Column width={4} />
+			</Grid>
 		)
 	}
 
-} 
+}
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({createUser}, dispatch)
