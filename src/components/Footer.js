@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from 'semanti-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
