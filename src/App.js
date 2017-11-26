@@ -22,7 +22,7 @@ import NewTastingForm from './components/tastingComponents/NewTastingForm'
 import WinePage from './components/wineComponents/WinePage'
 import { fetchAllWines } from './actions/wineActions'
 import AboutPage from './components/AboutPage'
-import { Icon } from 'semantic-ui-react'
+import Footer from './components/Footer'
 
 
 class App extends Component {
@@ -54,9 +54,7 @@ class App extends Component {
             <Route path="/form/new" component={NewTastingForm} />
             <Route path="/winepage" component={WinePage} />
             <Route path="/about" component={AboutPage} />
-            <div class="footer">
-              <p>Copyright <Icon name='copyright' /> 2017 Jacob Lyon</p>
-            </div>
+            <Route path="/" component={Footer} />
         </div>
       </div>
     );
